@@ -1,0 +1,66 @@
+.register_container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 100px 100px;
+}
+
+.register_form {
+    display: flex;
+    flex-direction: column;
+}
+
+.username_container {
+    margin: 5px;
+}
+
+.username_label {
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 5px
+}
+
+.username_input {
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 5px;
+    margin-left: 25px;
+    height: 18px;
+}
+
+.password_container {
+    margin: 5px;
+}
+
+.password_label {
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 5px
+}
+
+.password_input {
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 5px;
+    margin-left: 25px;
+    height: 18px;
+}
+
+.email_container {
+    margin: 5px;
+}
+
+.email_label {
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 5px
+}
+
+.email_input {
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 5px;
+    margin-left: 25px;
+    height: 18px;
+}
