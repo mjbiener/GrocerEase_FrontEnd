@@ -1,5 +1,6 @@
 import { useState } from 'react'
-import { requestLogin } from '../ajax'   
+import { requestLogin } from '../ajax' 
+  
 
 
 const Login = ({ isLoggedIn, setAuth}) => {
@@ -26,7 +27,7 @@ const Login = ({ isLoggedIn, setAuth}) => {
         <form onSubmit={handleSubmit}>
             <div className="log">
                 <label>
-                    Username
+                Username 
                 </label>
                 <input
                     type="text"
@@ -38,7 +39,7 @@ const Login = ({ isLoggedIn, setAuth}) => {
 
             <div className="log">
                 <label>
-                    Password
+                Password
                 </label>
                 <input
                     type="password"
@@ -50,6 +51,8 @@ const Login = ({ isLoggedIn, setAuth}) => {
             <div>
                 <button type="Submit">Lets Shop</button>
             </div>
+            <a href="/">Forgot Username</a> 
+            <a href="/">Forgot Password</a>
             </form>
  )
     }
