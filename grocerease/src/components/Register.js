@@ -76,7 +76,7 @@ export const Register = ({ setAuth }) => {
                             Create Account
                         </button>
                     </div>
-                    <a href="/">Forgot Username</a>
+                    <a href='/forgot_username'>Forgot Username</a>
                 </form>
             </div>
         )}
