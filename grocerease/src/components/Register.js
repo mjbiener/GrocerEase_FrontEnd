@@ -11,23 +11,23 @@ export const Register = ({ setAuth }) => {
         event.preventDefault()
         // axios call goes here
         axios
-            .post('https://jsonplaceholder.typicode.com/users', {
+            .post('https://grocerease.herokuapp.com/grocerease/register', {
                 email: email,
                 username: username,
                 password: password,
             })
             .then((res) => {
                 console.log(res)
-                // return axios
-                //     .post('', {
-                //         username: username,
-                //         password: password,
-                //     })
-                //     .then((data) => {
-                //         if (data && data.data.auth_token) {
-                //             setAuth(data.data.auth_token)
-                //         }
-                //     })
+                return axios
+                    .post('https://grocerease.herokuapp.com/auth/token/login/', {
+                        username: username,
+                        password: password,
+                    })
+                    .then((data) => {
+                        if (data && data.data.auth_token) {
+                            setAuth(data.data.auth_token)
+                        }
+                    })
             })
         }
 
@@ -71,12 +71,14 @@ export const Register = ({ setAuth }) => {
                             value={email}
                             onChange={(e) => handleChange('email', e)}/>
                     </div>
-                    <div>
-                        <button type="submit">
+                    <div className='create_account_button_div'>
+                        <button className='create_account_button' type="submit">
                             Create Account
                         </button>
                     </div>
-                    <a href='/forgot_username'>Forgot Username</a>
+                    <div className='forgot_username_link'>
+                        <a href='/forgot_username'>Forgot Username</a>
+                    </div>
                 </form>
             </div>
         )}
