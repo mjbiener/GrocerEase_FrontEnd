@@ -1,26 +1,27 @@
 import { useState } from 'react'
-import { requestLogin } from '../ajax' 
+import axios from "axios"
+import { Link } from "react-router-dom"
   
 
 
-const Login = ({ isLoggedIn, setAuth}) => {
-    const [username, setUsername] = useState('')
+export default function Login ({ isLoggedIn, setAuth})  {
+    const [username, setUsername] = useState("")
     const [password, setPassword] = useState('')
 
 
     const handleSubmit = (event) => {
         event.preventDefault()
-        // axios.post(someUrl).then(data=> setSomeState(data))
-        // here is my FAKE REQUEST PLACEHOLDER
-        requestLogin(username, password)
-          .then((data) => {
-            // if we have a response and it includes the auth_token key
-            if (data && data.auth_token) {
-              // update the parent's state to include auth token
-              setAuth(username, data.auth_token)
-            }
-          })
-        //   .catch((error) => setErrors(error.message))
+        axios 
+        .post('https://grocerease.herokuapp.com/auth/token/login/', {
+          username: username,
+          password: password,
+        })
+        .then((res) => {
+          console.log(res)
+          if (res.data.auth_token) {
+            setAuth(username, res.data.auth_token)
+          }
+        })
       }
       
         return (
@@ -51,11 +52,11 @@ const Login = ({ isLoggedIn, setAuth}) => {
             <div>
                 <button type="Submit">Lets Shop</button>
             </div>
-            <a href="/">Forgot Username</a> 
-            <a href="/">Forgot Password</a>
+            <Link to="/ForgotUsername">Forgot Username</Link>
+            <Link to="/forgotPassword">Forgot Password</Link>
             </form>
  )
     }
 
 
-export default Login
+// export default Login
