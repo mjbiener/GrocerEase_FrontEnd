@@ -11,3 +11,4 @@ export const GroceryCard = (props) => {
         </div>
     )
 }
+

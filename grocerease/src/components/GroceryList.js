@@ -9,7 +9,7 @@ let fakeData = [
     },
 ]
 
-export const GroceryList = () => {
+const GroceryList = () => {
     const [groceryList, setGroceryList] = useState(null)
 
     useEffect(() => {
