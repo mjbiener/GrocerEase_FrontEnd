@@ -5,10 +5,11 @@ import { Register } from "./components/Register";
 import ForgotUsername from "./components/ForgotUsername";
 import './App.css'
 import { useState } from 'react'
-import { GroceryList } from './components/GroceryList'
+import GroceryList  from './components/GroceryList'
 import { GroceryCard } from './components/GroceryCard'
 import useLocalStorageState from 'use-local-storage-state'
 import Homepage from "./components/Homepage";
+import Mainpage from "./components/Mainpage";
 
 export default function App() {
   const [token, setToken] = useLocalStorageState('grocereaseAuthToken', null)
@@ -25,9 +26,11 @@ export default function App() {
     <Router>
       <Routes>
         <Route path='/' element={ isLoggedIn ? <GroceryList/> : <Homepage />}></Route>
-        <Route path='/lists'></Route>
+        <Route path='/lists' element= {<Mainpage />} />
         <Route path="/register" element={<Register setAuth={setAuth} />} />
         <Route path="/forgot_username" element={<ForgotUsername />} />
+        <Route path="/forgot_password" />
+        <Route path='logout' />
       </Routes>
     </Router>
     

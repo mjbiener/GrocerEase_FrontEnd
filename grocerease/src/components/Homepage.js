@@ -3,12 +3,9 @@ import { Link } from "react-router-dom";
 const Homepage = () => {
 
 return (
-
         <div>
             <div>
-                <header>
-                    Welcome to Grocerease
-                </header>
+                <header>Welcome to Grocerease</header>
             </div>
             <div>
                 <p>Brief Decription</p>
@@ -19,9 +16,6 @@ return (
             <div>
                 <Link to='/register'>Register</Link>
             </div>
-            
-            
-            
         </div>
 )}
 
