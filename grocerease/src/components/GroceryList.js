@@ -34,3 +34,5 @@ export const GroceryList = () => {
         </>
     )
 }
+
+export default GroceryList
