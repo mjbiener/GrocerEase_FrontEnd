@@ -44,40 +44,40 @@ export const Register = ({ setAuth }) => {
         }
 
         return (
-            <div className='register_container'>
-                <form className='register_form' onSubmit={handleSubmit}>
-                    <div className='username_container'>
-                        <label className="username_label">Username:</label>
-                        <input className='username_input' 
+            <div className="pa4 black-80">
+                <form className="sign-up_submit" onSubmit={handleSubmit}>
+                    <div className="mt3">
+                        <label className="db fw4 lh-copy f6">Username:</label>
+                        <input className="pa2 input-reset ba bg-transparent w-100 measure" 
                             type="text"
                             placeholder="JohnSmith88"
                             value={username}
                             onChange={(e) => handleChange('username', e)}/>
                     </div>
-                    <div className='password_container'>
-                        <label className='password_label'>Password:</label>
-                        <input className="password_input"
+                    <div className="mt3">
+                        <label className="db fw4 lh-copy f6">Password:</label>
+                        <input className="pa2 input-reset ba bg-transparent w-100 measure"
                             placeholder="password"
                             type="password"
                             value={password}
                             onChange={(e) => handleChange('password', e)}
                         />
                     </div>
-                    <div className='email_container'>
-                        <label className='email_label'>Email:</label>
-                        <input className='email_input'
+                    <div className="mt3">
+                        <label className="db fw4 lh-copy f6">Email:</label>
+                        <input className="pa2 input-reset ba bg-transparent w-100 measure"
                             type="text"
                             placeholder="JohnSmith@gmail.com"
                             value={email}
                             onChange={(e) => handleChange('email', e)}/>
                     </div>
-                    <div className='create_account_button_div'>
-                        <button className='create_account_button' type="submit">
+                    <div className="mt3">
+                        <button className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6" type="submit">
                             Create Account
                         </button>
                     </div>
-                    <div className='forgot_username_link'>
-                        <a href='/forgot_username'>Forgot Username</a>
+                    <div className="mt3">
+                        <a className="f4 fw6 db blue no-underline underline-hover" href='/forgot_username'>Forgot Username</a>
                     </div>
                 </form>
             </div>
