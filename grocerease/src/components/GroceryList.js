@@ -15,6 +15,45 @@ let fakeData = [
         'image': 'image'
     },
 
+    {
+        'category': 'Grains',
+        'name': 'Rice',
+        'image': 'image'
+    },
+
+    {
+        'category': 'Dairy',
+        'name': 'Milk',
+        'image': 'image'
+    },
+
+    { 
+        'category': 'Produce',
+        'name': 'Cucumber',
+        'image': 'image'
+    },
+
+    {
+        'category': 'Dairy',
+        'name': 'Milk',
+        'image': 'image'
+    },
+
+    {
+        'category': 'Grains',
+        'name': 'Rice',
+        'image': 'image'
+    },
+
+    {
+        'category': 'Dairy',
+        'name': 'Milk',
+        'image': 'image'
+    },
+
+
+
+
 ]
 
 export const GroceryList = () => {

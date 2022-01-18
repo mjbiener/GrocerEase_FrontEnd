@@ -17,16 +17,21 @@ code {
   /* creating the sticky note illusion */
   background-color: #fef68a;
   border-radius: 10px;
-  padding: 1rem;
-  min-height:  175px;
+  padding: 4rem;
+  min-height: 175px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
 .grocery-list{
-  display: grid;
+  display: flex;
   grid-gap: 1rem;
   grid-template-columns: repeat(1, 250px);
-  
+  align-content: row;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -50px;
+  margin-left: -50px;
 }
