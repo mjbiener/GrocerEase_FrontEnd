@@ -5,16 +5,12 @@ export default function ForgotUsername() {
 
     const handleSubmit = (event)=>{
         event.preventDefault()
-
+        
         console.log(event.target)
         
         let url = 'https://jsonplaceholder' //trigger reset email
         const data = {email: event.target.email.value}
-        //inside your email
-    
-
-        //click this link to reset http://yout/resset?jwt_token=jwt_string
-
+        
         axios.post(url, data)
         .then((response)=> {
             //route to homescreen

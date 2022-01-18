@@ -9,7 +9,6 @@ export const Register = ({ setAuth }) => {
 
     const handleSubmit = (event) => {
         event.preventDefault()
-        // axios call goes here
         axios
             .post('https://grocerease.herokuapp.com/grocerease/register', {
                 email: email,

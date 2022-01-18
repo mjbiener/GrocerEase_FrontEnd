@@ -21,7 +21,7 @@ const [email, setEmail] = useState("")
     //       }
     //     })
     //   }
-      
+    
         return (
         <form>
             <div className="log">
