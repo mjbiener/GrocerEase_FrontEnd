@@ -5,7 +5,7 @@ export default function AddCard () {
 
 
 return (
-    <div className='addCard'>
+    <div className='addItem'>
 
         <div className='cardHeader'>
             <button className='addCard'>

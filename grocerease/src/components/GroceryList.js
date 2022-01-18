@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { GroceryCard } from './GroceryCard'
+// import  AddCard  from './AddCard';
 
 let fakeData = [ 
     // PROBLEM: NEEDS THE FAKEDATA THIS TO LIST ON 1 GROCERYCARD
@@ -78,6 +79,7 @@ export const GroceryList = () => {
                         />
                     )
                 })}
+                {/* <AddCard/> */}
         </div>
     )
 }
