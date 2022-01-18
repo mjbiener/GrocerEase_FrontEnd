@@ -1,11 +1,11 @@
-// import React from 'react'
-// // import  RiDeleteBin5Line  from "react-icons/fa";
+import React from 'react'
 
-// export default function DeleteCard (e) {
-    
-//     return (
-//         <button className='deletebutton' onClick={(e) => this.DeleteCard(id,
-//         e)}>Delete Card</button>
-        
-//     )
-//     }
+const DeleteCard = () => {
+    return (
+            <div className='cardHeader'>
+                <button className='delete'>Delete List</button>
+            </div>
+    )
+}
+
+export default DeleteCard;
