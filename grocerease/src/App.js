@@ -1,9 +1,7 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { Register } from "./components/Register";
 import ForgotUsername from "./components/ForgotUsername";
-import { useState } from 'react'
 import GroceryList  from './components/GroceryList'
-import GroceryCard from './components/GroceryCard'
 import useLocalStorageState from 'use-local-storage-state'
 import Homepage from "./components/Homepage";
 import Mainpage from "./components/Mainpage";
