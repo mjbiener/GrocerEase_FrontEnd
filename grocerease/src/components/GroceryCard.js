@@ -3,7 +3,9 @@ import React from 'react'
 export const GroceryCard = (props) => {
     let { category, name, image } = props
 
+    
     return (
+        
         <div className='card'>
             <h1> Grocery List </h1>
             <p>{category}, {name}, {image}</p>
