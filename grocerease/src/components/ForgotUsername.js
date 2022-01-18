@@ -27,14 +27,14 @@ export default function ForgotUsername() {
     
     }
     return (
-        <div>
-            <form name='form_forgot_username' onSubmit={handleSubmit}>
-                <div className="formgroup">
-                    <label htmlFor="">Email</label>
-                    <input type="email" name='email' placeholder='johnsmit@gmail.com'/>
+        <div className="pa4 black-80">
+            <form name="measure center" onSubmit={handleSubmit}>
+                <div className="mt3">
+                    <label className="db fw4 lh-copy f6" htmlFor="">Email</label>
+                    <input className="pa2 input-reset ba bg-transparent w-100 measure" type="email" name='email' placeholder='johnsmit@gmail.com'/>
                 </div>
-                <div className="formgroup">
-                    <button type="submit">submit</button>
+                <div className="mt3">
+                    <button className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6" type="submit">submit</button>
                 </div>
             </form>
             
