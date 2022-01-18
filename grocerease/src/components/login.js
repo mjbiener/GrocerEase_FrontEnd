@@ -5,7 +5,7 @@ import { Link } from "react-router-dom"
 
 
 export default function Login ({ isLoggedIn, setAuth})  {
-    const [username, setUsername] = useState("")
+    const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
 
 
@@ -38,28 +38,26 @@ export default function Login ({ isLoggedIn, setAuth})  {
                         onChange={(event) => setUsername(event.target.value)}
                     />
                 </div>
-
                 <div className="mt3">
-                    <label className="db fw4 lh-copy f6">
-                    Password
-                    </label>
-                    <input
-                        type="password"
-                        id="password"
-                        value={password}
-                        onChange={(event) => setPassword(event.target.value)}
-                    />
+                      <label className="db fw4 lh-copy f6">
+                      Password
+                      </label>
+                      <input
+                          type="password"
+                          id="password"
+                          value={password}
+                          onChange={(event) => setPassword(event.target.value)} />
                 </div>
                 <div className="mt3">
-                    <button className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6" type="Submit">Lets Shop</button>
+                      <button className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6" type="Submit">Lets Shop</button>
                 </div>
                 <div className="lh-copy mt3">
-                  <Link className="f4 fw6 db blue no-underline underline-hover" to="/ForgotUsername">Forgot Username</Link>
-                  <Link className="f4 fw6 db blue no-underline underline-hover"to="/forgotPassword">Forgot Password</Link>
+                    <Link className="f4 fw6 db blue no-underline underline-hover" to="/ForgotUsername">Forgot Username</Link>
+                    <Link className="f4 fw6 db blue no-underline underline-hover"to="/forgotPassword">Forgot Password</Link>
                 </div>
-                </form>
-            </div>
- )
+            </form>
+          </div>
+  )
     }
 
 

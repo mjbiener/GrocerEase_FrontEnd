@@ -7,7 +7,7 @@ import GroceryCard from './components/GroceryCard'
 import useLocalStorageState from 'use-local-storage-state'
 import Homepage from "./components/Homepage";
 import Mainpage from "./components/Mainpage";
-import Login from './components/login.js'
+import Login from './components/Login.js'
 import Passwordreset from './components/ForgotPassword'
 
 
@@ -32,7 +32,10 @@ export default function App() {
         <Route path="/forgot_username" element={<ForgotUsername />} />
         <Route path='logout' />
         <Route path="/login" element={<Login />} />
-        <Route path="/forgotPassword" element={<Passwordreset />} />
+        <Route path="/forgotPassword" />
+        <Route path="/saved_list" />
+        <Route path="/go_shopping" />
+        <Route path="/unlisted_item" />
       </Routes>
     </Router>
     
