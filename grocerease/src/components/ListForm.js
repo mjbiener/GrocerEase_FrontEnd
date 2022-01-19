@@ -8,15 +8,16 @@ export const InputField = () => {
     }
     return (
         <>
-            <input type='text' value={text} onChange={handleChange} />
             <div>
-                <h3>Label Name:</h3>
-                <p>{text}</p>
-
+                <label>Label Name:</label>
+                <input type='text' value={text} onChange={handleChange} />
+                <button type='submit' value='submit'> Create a New List </button>
             </div>
-            <button type='submit' value='submit'> Create a New List </button>
-        
+
         </>
     )
+
+
+
 
 }
