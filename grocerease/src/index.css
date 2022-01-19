@@ -17,7 +17,7 @@ code {
   /* creating the sticky note illusion */
   background-color: #fef68a;
   border-radius: 10px;
-  padding: 5.5rem;
+  padding: 2rem;
   min-height: 175px;
   display: flex;
   flex-direction: column;
@@ -26,13 +26,14 @@ code {
 }
 
 .grocery-list{
-  display: flex;
+  display: grid;
   grid-gap: 4rem;
-  grid-template-columns: repeat(1, 250px);
-  align-content: row;
+  grid-template-columns: repeat(3, 230px);
+  align-content: column;
   position: absolute;
   top: 35%;
-  left: 50%;
+  left: 20%;
   margin-top: -50px;
   margin-left: -50px;
+  padding-bottom: 50px;
 }

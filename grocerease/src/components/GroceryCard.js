@@ -7,7 +7,7 @@ export const GroceryCard = (props) => {
     return (
         
         <div className='card'>
-            <h1> {list_title}</h1>
+            <h2> {list_title}</h2>
             <ul>{created_at} </ul>
             <ul>{tags}</ul>
             <button className='detailsButton' value='details'>Details</button>
