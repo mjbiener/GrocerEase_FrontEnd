@@ -9,7 +9,7 @@ export const InputField = () => {
     return (
         <>
             <div>
-                <label>Label Name:</label>
+                <label>List Name:</label>
                 <input type='text' value={text} onChange={handleChange} />
                 <button type='submit' value='submit'> Create a New List </button>
             </div>
