@@ -7,6 +7,7 @@ import Homepage from "./components/Homepage";
 import Mainpage from "./components/Mainpage";
 import Login from './components/Login.js'
 import ForgotPassword from './components/ForgotPassword'
+import Createlist from "./components/CreateList";
 
 
 
@@ -32,7 +33,7 @@ export default function App() {
         <Route path="/login" element={<Login setAuth={setAuth} isLoggedIn={isLoggedIn}/>} />
         <Route path="/forgotPassword" element={<ForgotPassword />}/>
         <Route path="/saved_list" />
-        <Route path="/go_shopping" />
+        <Route path="/CreateList" element={<Createlist />} />
         <Route path="/unlisted_item" />
       </Routes>
     </Router>
