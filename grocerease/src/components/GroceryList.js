@@ -40,7 +40,7 @@ let fakeData = [
 
 ]
 
-export const GroceryList = () => {
+const GroceryList = () => {
     const [groceryList, setGroceryList] = useState(null)
 
     useEffect(() => {
@@ -66,3 +66,5 @@ export const GroceryList = () => {
         </div>
     )
 }
+
+export default GroceryList
