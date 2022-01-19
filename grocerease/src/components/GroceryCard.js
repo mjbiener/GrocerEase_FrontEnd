@@ -1,15 +1,16 @@
 import React from 'react'
 
 export const GroceryCard = (props) => {
-    let { category, name, image } = props
+    let { list_title , created_at, tags } = props
 
     
     return (
         
         <div className='card'>
-            <h1> Grocery List </h1>
-            <p>{category}, {name}, {image}</p>
-            
+            <h1> {list_title}</h1>
+            <ul>{created_at} </ul>
+            <ul>{tags}</ul>
+            <button className='detailsButton' value='details'>Details</button>
         </div>
     )
 }

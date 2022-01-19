@@ -5,55 +5,10 @@ import { GroceryCard } from './GroceryCard'
 let fakeData = [ 
     // PROBLEM: NEEDS THE FAKEDATA THIS TO LIST ON 1 GROCERYCARD
     { 
-        'category': 'Produce',
-        'name': 'Cucumber',
-        'image': 'image'
+        'list_title': "Jordyn's Grocery List",
+        'created_at': '01/19/21',
+        'tags':'vegan',
     },
-
-    {
-        'category': 'Dairy',
-        'name': 'Milk',
-        'image': 'image'
-    },
-
-    {
-        'category': 'Grains',
-        'name': 'Rice',
-        'image': 'image'
-    },
-
-    {
-        'category': 'Dairy',
-        'name': 'Milk',
-        'image': 'image'
-    },
-
-    { 
-        'category': 'Produce',
-        'name': 'Cucumber',
-        'image': 'image'
-    },
-
-    {
-        'category': 'Dairy',
-        'name': 'Milk',
-        'image': 'image'
-    },
-
-    {
-        'category': 'Grains',
-        'name': 'Rice',
-        'image': 'image'
-    },
-
-    {
-        'category': 'Dairy',
-        'name': 'Milk',
-        'image': 'image'
-    },
-
-
-
 
 ]
 
@@ -72,10 +27,10 @@ export const GroceryList = () => {
                 groceryList.map((grocery) => {
                     return (
                         <GroceryCard
-                            pk={grocery.pk}
-                            category={grocery.category}
-                            name={grocery.name}
-                            image={grocery.image}
+                            id={grocery.id}
+                            list_title={grocery.list_title}
+                            created_at={grocery.created_at}
+                            tags={grocery.tags}
                         />
                     )
                 })}
