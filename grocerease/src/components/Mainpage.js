@@ -12,7 +12,7 @@ const Mainpage = () => {
             <Navbar />
         </div>
         <div>
-            <InputField/>
+            <InputField />
         </div>
         <div>
             <GroceryList />
