@@ -1,5 +1,6 @@
 import Navbar from "./Navbar";
 import GroceryList from "./GroceryList";
+import { InputField } from "./ListForm";
 
 const Mainpage = () => {
     return (
@@ -9,6 +10,9 @@ const Mainpage = () => {
         </div>
         <div className="navbar_container">
             <Navbar />
+        </div>
+        <div>
+            <InputField/>
         </div>
         <div>
             <GroceryList />
