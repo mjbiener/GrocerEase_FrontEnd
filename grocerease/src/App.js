@@ -31,12 +31,12 @@ export default function App() {
   return (
     <Router>
       <Routes>
-        <Route path='/' element={ isLoggedIn ? <Mainpage username={username} eraseAuth={eraseAuth}/> : <Homepage />}></Route>
-        <Route path='/lists' element= {<Mainpage username={username} eraseAuth={eraseAuth}/>} />
-        <Route path="/register" element={isLoggedIn ? <Mainpage username={username} eraseAuth={eraseAuth}/> : <Register setAuth={setAuth} />} />
+        <Route path='/' element={ isLoggedIn ? <Mainpage username={username} token={token} eraseAuth={eraseAuth}/> : <Homepage />}></Route>
+        <Route path='/lists' element= {<Mainpage username={username} token={token} eraseAuth={eraseAuth}/>} />
+        <Route path="/register" element= {isLoggedIn ? <Mainpage username={username} token={token} eraseAuth={eraseAuth}/> : <Register setAuth={setAuth} username={username} token={token} />} />
         <Route path="/forgot_username" element={<ForgotUsername />} />
-        <Route path='/logout' element={<Logout username={username} eraseAuth={eraseAuth}/>}/>
-        <Route path="/login" element={isLoggedIn ? <Mainpage username={username} eraseAuth={eraseAuth}/> : <Login setAuth={setAuth} isLoggedIn={isLoggedIn}/>} />
+        <Route path='/logout' element={<Logout username={username} eraseAuth={eraseAuth} token={token}/>}/>
+        <Route path="/login" element={isLoggedIn ? <Mainpage username={username} token={token} eraseAuth={eraseAuth}/> : <Login setAuth={setAuth} isLoggedIn={isLoggedIn}/>} />
         <Route path="/forgotPassword" element={<ForgotPassword />}/>
         <Route path="/saved_list" />
         <Route path="/go_shopping" />
