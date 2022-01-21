@@ -11,19 +11,19 @@ export const InputField = ({token, setSubmitted}) => {
     
     const handleSubmit = (event) => {
         event.preventDefault()
-        axios.post('https://grocerease.herokuapp.com/grocerease/create_list', 
+        axios.post('https://grocerease.herokuapp.com/grocerease/create_list/', 
         {
         name: name,
         
         },
-        {
-            // added the headers portion
-            headers: {
-                'Content-Type': 'application/json',
-                Authorization: `token ${token}`
+        // {
+        //     // added the headers portion
+        //     headers: {
+        //         'Content-Type': 'application/json',
+        //         Authorization: `token ${token}`
 
-            }
-    }
+        //     }
+    // }
     ).then(res => {
         // console.log(res)
         // if(res.data.auth_token) {

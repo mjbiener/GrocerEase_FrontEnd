@@ -40,7 +40,7 @@ export const GroceryList = ({token}) => {
             <div className="search-filter">
                 <div>
                     <label>Sort By:</label>
-                    <select class="sort-by">
+                    <select className="sort-by">
                         <option value="">Select one</option>
                         <option value="name">Title</option>
                         <option value="date">Date</option>
