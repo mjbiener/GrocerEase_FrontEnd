@@ -3,7 +3,8 @@ import { useState } from 'react';
 import '../groceryListDetail.css'
 import GroceryListItem from './GroceryListItem'
 
-const GroceryListDetail = ({listId}) => {
+const GroceryListDetail = () => {
+    let listId = 5
     const [value, setValue] = useState('');
     const [items, setItems] = useState([]);
         // name: 'cucumber',
@@ -31,6 +32,8 @@ const GroceryListDetail = ({listId}) => {
         event.preventDefault()
         axios.patch(`https://grocerease.herokuapp.com/grocerease/create_item/${listId}/`, 
         { product_name: value,
+            quantity: value,
+            
         },
         {
             headers: {
