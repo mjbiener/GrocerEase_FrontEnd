@@ -2,14 +2,11 @@ import Navbar from "./Navbar";
 import GroceryList from "./GroceryList";
 
 
-const Mainpage = () => {
+const Mainpage = ({eraseAuth, token, username}) => {
     return (
         <>
-        <div>
-            <h1>GrocerEase</h1>
-        </div>
         <div className="navbar_container">
-            <Navbar />
+            <Navbar eraseAuth= {eraseAuth} token={token} username= {username}/>
         </div>
         <div>
             <GroceryList />
