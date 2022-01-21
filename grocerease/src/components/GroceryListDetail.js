@@ -5,31 +5,31 @@ import GroceryListItem from './GroceryListItem'
 
 const GroceryListDetail = ({listId}) => {
     const [value, setValue] = useState('');
-    const [items, setItems] = useState([{
-        name: 'cucumber',
-        count: 1,
-        image: 'https://static.libertyprim.com/files/varietes/concombre-hollandais-large.jpg?1569524167'
-        }, 
-        {
-        name: 'cucumber',
-        count: 1,
-        image: 'https://static.libertyprim.com/files/varietes/concombre-hollandais-large.jpg?1569524167',
-        },
-        {
-        name: 'cucumber',
-        count: 1,
-        image: 'https://static.libertyprim.com/files/varietes/concombre-hollandais-large.jpg?1569524167',
-        },
-        {
-        name: 'cucumber',
-        count: 1,
-        image: 'https://static.libertyprim.com/files/varietes/concombre-hollandais-large.jpg?1569524167',
-        }
-])
+    const [items, setItems] = useState([]);
+        // name: 'cucumber',
+        // count: 1,
+        // image: 'https://static.libertyprim.com/files/varietes/concombre-hollandais-large.jpg?1569524167'
+        // }, 
+        // {
+        // name: 'cucumber',
+        // count: 1,
+        // image: 'https://static.libertyprim.com/files/varietes/concombre-hollandais-large.jpg?1569524167',
+        // },
+        // {
+        // name: 'cucumber',
+        // count: 1,
+        // image: 'https://static.libertyprim.com/files/varietes/concombre-hollandais-large.jpg?1569524167',
+        // },
+        // {
+        // name: 'cucumber',
+        // count: 1,
+        // image: 'https://static.libertyprim.com/files/varietes/concombre-hollandais-large.jpg?1569524167',
+        // }
+
 
     const axiosCall = (event) => {
         event.preventDefault()
-        axios.patch(`https://grocerease.herokuapp.com/grocerease/add_list_item/${listId}/`, 
+        axios.patch(`https://grocerease.herokuapp.com/grocerease/create_item/${listId}/`, 
         { product_name: value,
         },
         {
@@ -42,7 +42,7 @@ const GroceryListDetail = ({listId}) => {
             console.log(res)
             setItems([
                 ...items,
-                {name: res.name, image: res.image, category: res.category, aisle: res.image}
+                {name: res.name, image: res.image}
             ])
         })
     }
