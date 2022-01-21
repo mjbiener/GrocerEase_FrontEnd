@@ -31,12 +31,12 @@ export default function App() {
   return (
     <Router>
       <Routes>
-        <Route path='/' element={ isLoggedIn ? <Mainpage/> : <Homepage />}></Route>
-        <Route path='/lists' element= {<Mainpage />} />
-        <Route path="/register" element={isLoggedIn ? <Mainpage/> : <Register setAuth={setAuth} />} />
+        <Route path='/' element={ isLoggedIn ? <Mainpage username={username} eraseAuth={eraseAuth}/> : <Homepage />}></Route>
+        <Route path='/lists' element= {<Mainpage username={username} eraseAuth={eraseAuth}/>} />
+        <Route path="/register" element={isLoggedIn ? <Mainpage username={username} eraseAuth={eraseAuth}/> : <Register setAuth={setAuth} />} />
         <Route path="/forgot_username" element={<ForgotUsername />} />
         <Route path='/logout' element={<Logout username={username} eraseAuth={eraseAuth}/>}/>
-        <Route path="/login" element={isLoggedIn ? <Mainpage/> : <Login setAuth={setAuth} isLoggedIn={isLoggedIn}/>} />
+        <Route path="/login" element={isLoggedIn ? <Mainpage username={username} eraseAuth={eraseAuth}/> : <Login setAuth={setAuth} isLoggedIn={isLoggedIn}/>} />
         <Route path="/forgotPassword" element={<ForgotPassword />}/>
         <Route path="/saved_list" />
         <Route path="/go_shopping" />
