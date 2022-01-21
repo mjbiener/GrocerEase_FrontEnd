@@ -56,4 +56,4 @@ export const GroceryList = ({token}) => {
 }
 
 
-export default GroceryList
+export default GroceryList;
