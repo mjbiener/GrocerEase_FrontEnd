@@ -67,4 +67,4 @@ const GroceryList = () => {
     )
 }
 
-export default GroceryList
+export default GroceryList;
