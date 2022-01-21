@@ -1,4 +1,4 @@
-import { GroceryList } from './components/GroceryList'
+import  GroceryList  from './components/GroceryList'
 import { InputField } from './components/ListForm'
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { Register } from "./components/Register";
