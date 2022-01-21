@@ -49,7 +49,7 @@ export default function Login ({ isLoggedIn, setAuth})  {
                           onChange={(event) => setPassword(event.target.value)} />
                 </div>
                 <div className="mt3">
-                      <button className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6" type="Submit">Lets Shop</button>
+                      <button className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6" type="submit">Lets Shop</button>
                 </div>
                 <div className="lh-copy mt3">
                     <Link className="f4 fw6 db blue no-underline underline-hover" to="/ForgotUsername">Forgot Username</Link>
