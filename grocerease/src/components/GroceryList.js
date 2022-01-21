@@ -9,17 +9,19 @@ export const GroceryList = ({token}) => {
     useEffect(() => { 
         // axois get request for saved grocery list 
     }, [token, setGroceryList])
-    const handleSubmit = () => {
-        axios
-        .post('https://grocerease.herokuapp.com/grocerease/add_list_item/id', {
-            headers: {
-                'Content-Type': 'application/json',
-                Authorization: `token ${token}`,
-            },
-        })
-        .then((res) => setGroceryList(res.data))
+    
+    
+    // const handleSubmit = () => {
+    //     axios
+    //     .post('https://grocerease.herokuapp.com/grocerease/add_list_item/id', {
+    //         headers: {
+    //             'Content-Type': 'application/json',
+    //             Authorization: `token ${token}`,
+    //         },
+    //     })
+    //     .then((res) => setGroceryList(res.data))
 
-    }
+    // }
 
     return (
         

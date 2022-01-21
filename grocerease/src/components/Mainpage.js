@@ -1,6 +1,6 @@
 import Navbar from "./Navbar";
 import GroceryList from "./GroceryList";
-import InputField from "./ListForm";
+import InputField from "./InputField";
 
 const Mainpage = () => {
     return (

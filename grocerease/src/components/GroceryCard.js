@@ -13,7 +13,7 @@ export const GroceryCard = ({ token }) => {
         axios
             .get(`https://grocerease.herokuapp.com/grocerease/create_list/${cardId}`, {
                 headers: {
-                    'Content-Type': 'application/json',
+                    // 'Content-Type': 'application/json',
                     Authorization: `token ${token}`,
 
                 },
@@ -23,6 +23,8 @@ export const GroceryCard = ({ token }) => {
                 setCardObj(res.data)
             })
     }, );
+    
+    
     const handleSubmit = () => {
         axios
         .post('https://grocerease.herokuapp.com/grocerease/create_list', {
@@ -31,7 +33,7 @@ export const GroceryCard = ({ token }) => {
                 Authorization: `token ${token}`,
             },
         })
-        .then((res) => setGroceryList(res.data))
+        .then((res) => setCardObj(res.data))
 
     }
 

@@ -4,6 +4,7 @@ import { useState } from 'react'
 
 // the user inputs information/text into this 
 // use the create list 
+// the input field to create a new list 
 export default function InputField  ({setSubmitted}) {
     const [name, setName] = useState('')
     
@@ -32,7 +33,7 @@ export default function InputField  ({setSubmitted}) {
                 value={name} 
                 onChange={(event)=> setName(event.target.value)}
                 />
-                <button type='submit' to="/create_list"> Grocery List Details </button>
+                <button type='submit' to="/create_list"> Create New List </button>
             </form>
 
         </div>
