@@ -60,3 +60,19 @@ i {
     width: 100%;
     
 }
+
+.button_container {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 16px;
+    height: 55px;
+}
+
+.save_list_button {
+    width: 450px;
+}
+
+.start_shopping_button {
+    width: 450px;
+    
+}

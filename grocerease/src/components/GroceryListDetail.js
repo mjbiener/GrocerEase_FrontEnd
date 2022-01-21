@@ -65,6 +65,10 @@ const GroceryListDetail = ({listId}) => {
                 )
             })}
         </div>
+        <div className='button_container'>
+            <button className='save_list_button'>Save List</button>
+            <button className='start_shopping_button'>Start Shopping</button>
+        </div>
         </>
     )
 }
