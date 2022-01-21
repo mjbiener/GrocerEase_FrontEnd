@@ -1,13 +1,15 @@
-import GroceryList  from './components/GroceryList'
-import { InputField } from './components/ListForm'
+
+import GroceryList from './components/GroceryList';
+import { InputField } from './components/ListForm';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { Register } from "./components/Register";
 import ForgotUsername from "./components/ForgotUsername";
-import useLocalStorageState from 'use-local-storage-state'
+import useLocalStorageState from 'use-local-storage-state';
 import Homepage from "./components/Homepage";
 import Mainpage from "./components/Mainpage";
-import Login from './components/Login.js'
-import ForgotPassword from './components/ForgotPassword'
+import Login from './components/Login.js';
+import ForgotPassword from './components/ForgotPassword';
+import Logout from './components/Logout';
 import GroceryListDetail from './components/GroceryListDetail';
 
 
@@ -21,17 +23,22 @@ export default function App() {
     setToken(token)
   }
 
+  function eraseAuth() {
+    setUsername('')
+    setToken('')
+  }
+
   const isLoggedIn = username && token
 
   return (
     <Router>
       <Routes>
-        <Route path='/' element={ isLoggedIn ? <GroceryList/> : <Homepage />}></Route>
-        <Route path='/lists' element= {<Mainpage />} />
-        <Route path="/register" element={<Register setAuth={setAuth} />} />
+        <Route path='/' element={ isLoggedIn ? <Mainpage username={username} token={token} eraseAuth={eraseAuth}/> : <Homepage />}></Route>
+        <Route path='/lists' element= {<Mainpage username={username} token={token} eraseAuth={eraseAuth}/>} />
+        <Route path="/register" element= {isLoggedIn ? <Mainpage username={username} token={token} eraseAuth={eraseAuth}/> : <Register setAuth={setAuth} username={username} token={token} />} />
         <Route path="/forgot_username" element={<ForgotUsername />} />
-        <Route path='logout' />
-        <Route path="/login" element={<Login setAuth={setAuth} isLoggedIn={isLoggedIn}/>} />
+        <Route path='/logout' element={<Logout username={username} eraseAuth={eraseAuth} token={token}/>}/>
+        <Route path="/login" element={isLoggedIn ? <Mainpage username={username} token={token} eraseAuth={eraseAuth}/> : <Login setAuth={setAuth} isLoggedIn={isLoggedIn}/>} />
         <Route path="/forgotPassword" element={<ForgotPassword />}/>
         <Route path="/saved_list" />
         <Route path="/go_shopping" />
