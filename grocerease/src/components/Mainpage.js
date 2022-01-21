@@ -1,6 +1,7 @@
 import Navbar from "./Navbar";
 import GroceryList from "./GroceryList";
 
+
 const Mainpage = () => {
     return (
         <>

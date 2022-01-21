@@ -1,4 +1,4 @@
-import { GroceryList } from './components/GroceryList'
+import GroceryList  from './components/GroceryList'
 import { InputField } from './components/ListForm'
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { Register } from "./components/Register";
@@ -8,6 +8,7 @@ import Homepage from "./components/Homepage";
 import Mainpage from "./components/Mainpage";
 import Login from './components/Login.js'
 import ForgotPassword from './components/ForgotPassword'
+import GroceryListDetail from './components/GroceryListDetail';
 
 
 
@@ -35,10 +36,10 @@ export default function App() {
         <Route path="/saved_list" />
         <Route path="/go_shopping" />
         <Route path="/unlisted_item" />
+        <Route path="/create_list_detail" element={<GroceryListDetail listId={1}/>} />
       </Routes>
     </Router>
     
   );
 }
-    
-
+   
