@@ -1,17 +1,18 @@
 import { useState } from 'react';
 import axios from 'axios';
 import '../register.css';
+import { useNavigate } from 'react-router-dom'
 
 export const Register = ({ setAuth }) => {
     const [password, setPassword] = useState('')
     const [username, setUsername] = useState('')
     const [email, setEmail] = useState('')
+    const navigate = useNavigate()
 
     const handleSubmit = (event) => {
         event.preventDefault()
         axios
-            .post('https://grocerease.herokuapp.com/grocerease/register', {
-                email: email,
+            .post('https://grocerease.herokuapp.com/auth/users/', {
                 username: username,
                 password: password,
             })
@@ -28,6 +29,7 @@ export const Register = ({ setAuth }) => {
                         }
                     })
             })
+            navigate('/lists')
         }
 
         const handleChange = (inputType, event) => {
