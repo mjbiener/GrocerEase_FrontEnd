@@ -27,6 +27,7 @@ export default function App() {
       <Routes>
         <Route path='/' element={ isLoggedIn ? <GroceryList/> : <Homepage />}></Route>
         <Route path='/lists' element= {<Mainpage />} />
+        <Route path='/create_list' element= {<InputField />} />
         <Route path="/register" element={<Register setAuth={setAuth} />} />
         <Route path="/forgot_username" element={<ForgotUsername />} />
         <Route path='logout' />
