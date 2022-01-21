@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 import { GroceryCard } from './GroceryCard'
 
 
-export const GroceryList = ({token}) => {
+const GroceryList = ({token}) => {
     const [groceryList, setGroceryList] = useState(null)
     
     useEffect(() => { 

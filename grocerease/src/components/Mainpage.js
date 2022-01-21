@@ -1,6 +1,6 @@
 import Navbar from "./Navbar";
 import GroceryList from "./GroceryList";
-import { InputField } from "./InputField";
+import { CreateListForm } from "./CreateListForm";
 
 
 const Mainpage = ({eraseAuth, token, username}) => {
@@ -10,7 +10,7 @@ const Mainpage = ({eraseAuth, token, username}) => {
             <Navbar eraseAuth= {eraseAuth} token={token} username= {username}/>
         </div>
         <div>
-            <InputField />
+            <CreateListForm />
         </div>
         <div>
             <GroceryList />

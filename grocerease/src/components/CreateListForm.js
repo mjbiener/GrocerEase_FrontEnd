@@ -6,7 +6,7 @@ import axios from 'axios'
 // use the create list 
 // the input field to create a new list
 // update: nothing is showing on the /lists screen now 
-export const InputField = ({token, setSubmitted}) => {
+export const CreateListForm= ({token, setSubmitted}) => {
     const [name, setName] = useState('')
     
     const handleSubmit = (event) => {
