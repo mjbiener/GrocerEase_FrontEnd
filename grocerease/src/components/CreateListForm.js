@@ -1,39 +1,32 @@
 import { useState } from 'react'
 import axios from 'axios' 
+import { useNavigate } from 'react-router-dom'
 
 
-// the user inputs information/text into this 
-// use the create list 
-// the input field to create a new list
-// update: nothing is showing on the /lists screen now 
 export const CreateListForm= ({token, setSubmitted}) => {
+
     const [name, setName] = useState('')
-    
+    const navigate = useNavigate()
+
     const handleSubmit = (event) => {
         event.preventDefault()
-        axios.post('https://grocerease.herokuapp.com/grocerease/create_list/', 
+        axios.post('https://grocerease.herokuapp.com/grocerease/lists/', 
         {
         name: name,
-        
         },
-        // {
-        //     // added the headers portion
-        //     headers: {
-        //         'Content-Type': 'application/json',
-        //         Authorization: `token ${token}`
-
-        //     }
-    // }
-    ).then(res => {
-        // console.log(res)
-        // if(res.data.auth_token) {
-        //     setSubmitted(name, res.data.auth_token)
-        setSubmitted(true)
-        setName('')
-        return res
+        {
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `token ${token}`
+                }           
+        
+        }
+            ).then(res => {
+                navigate(`/create_list_detail?id=${res.data.pk}`)
+                
         })
     }
-    // added handle change
+    
         const handleChange = (inputType, event) => {
             if (inputType === 'name') {
                 setName(event.target.value)
@@ -52,9 +45,8 @@ export const CreateListForm= ({token, setSubmitted}) => {
                 value={name} 
                 onChange={(event) => handleChange('name', event)}
                 />
-                <button onClick={handleChange} to='/create_list'> Create New List </button>
+                <button onClick={handleSubmit}> Create New List </button>
             </form>
-{/* after clicking on this button the user should be directed to create a new list / the list details page */}
         </div>
     )
 }

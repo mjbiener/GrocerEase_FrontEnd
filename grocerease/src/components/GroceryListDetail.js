@@ -1,33 +1,32 @@
 import axios from "axios";
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import '../groceryListDetail.css'
 import GroceryListItem from './GroceryListItem'
+import { useLocation } from 'react-router-dom'
 
-const GroceryListDetail = () => {
-    let listId = 5
+const GroceryListDetail = ({token}) => {
+    const location = useLocation() 
+    let listId = location.search.split('=')[1]
     const [value, setValue] = useState('');
     const [items, setItems] = useState([]);
-        // name: 'cucumber',
-        // count: 1,
-        // image: 'https://static.libertyprim.com/files/varietes/concombre-hollandais-large.jpg?1569524167'
-        // }, 
-        // {
-        // name: 'cucumber',
-        // count: 1,
-        // image: 'https://static.libertyprim.com/files/varietes/concombre-hollandais-large.jpg?1569524167',
-        // },
-        // {
-        // name: 'cucumber',
-        // count: 1,
-        // image: 'https://static.libertyprim.com/files/varietes/concombre-hollandais-large.jpg?1569524167',
-        // },
-        // {
-        // name: 'cucumber',
-        // count: 1,
-        // image: 'https://static.libertyprim.com/files/varietes/concombre-hollandais-large.jpg?1569524167',
-        // }
-        
+    const [listName, setListName] = useState('');
+    const [listTags, setListTags] = useState([]);
 
+    useEffect(() => {
+        axios.get(`https://grocerease.herokuapp.com/grocerease/list_detail/${listId}`,
+        {
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `token ${token}`
+            }
+        })
+        .then (res => {
+            setListName(res.data.name)
+            setListTags(res.data.tags)
+        })
+    },
+    []
+    )
     const axiosCall = (event) => {
         event.preventDefault()
         axios.patch(`https://grocerease.herokuapp.com/grocerease/create_item/${listId}/`, 
@@ -38,7 +37,7 @@ const GroceryListDetail = () => {
         {
             headers: {
                 'Content-Type': 'application/json',
-                // Authorization: `token ${token}`
+                Authorization: `token ${token}`
             }
         }
         ).then (res => {
@@ -51,7 +50,10 @@ const GroceryListDetail = () => {
     }
     return (
         <>
-        
+        <div>
+            <p>{listName}</p>
+            <p>{listTags.join(', ')}</p>
+        </div>
         <div className='search_product_container'>
             <div>
                 <input className='pa2 input-reset ba bg-transparent w-100 measure search_input' type="text" id="products" value={value} 
