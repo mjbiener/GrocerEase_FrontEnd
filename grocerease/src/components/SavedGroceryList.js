@@ -1,19 +1,29 @@
 import axios from 'axios'
 import { useState, useEffect } from 'react'
-import GroceryCard from './GroceryCard'
+import { GroceryCard } from './GroceryCard'
 
 
 const GroceryList = ({token}) => {
     const [groceryList, setGroceryList] = useState(null)
     
-    useEffect(() => { 
-        // axois get request for saved grocery list 
-    }, [token, setGroceryList])
+    useEffect(() => {
+        console.log(token)
+        axios
+        .get('https://grocerease.herokuapp.com/grocerease/lists/', {
+            headers: {
+                'Content-Type': 'application/json',
+                 Authorization: `token ${token}`,
+
+            } 
+    })
+    .then((res) => {setGroceryList(res.data)
+                    console.log(res.data)})
+    .catch(error => console.log(error))}, [token, setGroceryList])
     
     
     const handleSubmit = () => {
         axios
-        .post('https://grocerease.herokuapp.com/grocerease/lists', {
+        .get('https://grocerease.herokuapp.com/grocerease/list_detail/id/', {
             headers: {
                 'Content-Type': 'application/json',
                 Authorization: `token ${token}`,
@@ -30,7 +40,7 @@ const GroceryList = ({token}) => {
             {groceryList &&
                 groceryList.map((cardObj) => {
                     return (
-                        <GroceryList
+                        <GroceryCard
                             name={cardObj.name}
                             date_created={cardObj.date_created}
                             tags={cardObj.tags}

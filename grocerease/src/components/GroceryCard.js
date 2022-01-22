@@ -10,7 +10,7 @@ export const GroceryCard = ({ token }) => {
     const [cardObj, setCardObj] = useState(null)
 
     useEffect(() => {
-        axios
+        axios 
             .get(`https://grocerease.herokuapp.com/grocerease/create_list/${cardId}`, {
                 headers: {
                     // 'Content-Type': 'application/json',
