@@ -19,7 +19,6 @@ export const CreateListForm= ({token, setSubmitted}) => {
                 'Content-Type': 'application/json',
                 Authorization: `token ${token}`
                 }           
-        
         }
             ).then(res => {
                 navigate(`/create_list_detail?id=${res.data.pk}`)

@@ -50,9 +50,9 @@ const GroceryListDetail = ({token}) => {
     }
     return (
         <>
-        <div>
-            <p>{listName}</p>
-            <p>{listTags.join(', ')}</p>
+        <div className='list_detail_name_tag'>
+            <p className='pa2 input-reset ba bg-transparent w-100 measure search_input'>{listName}</p>
+            <p className='pa2 input-reset ba bg-transparent w-100 measure search_input'>{listTags.join(', ')}</p>
         </div>
         <div className='search_product_container'>
             <div>
