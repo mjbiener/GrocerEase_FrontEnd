@@ -1,70 +1,59 @@
+import axios from 'axios'
 import { useState, useEffect } from 'react'
 import { GroceryCard } from './GroceryCard'
-// import  AddCard  from './AddCard';
-
-let fakeData = [ 
-    // PROBLEM: NEEDS THE FAKEDATA THIS TO LIST ON 1 GROCERYCARD
-    { 
-        'list_title': "New Diet",
-        'created_at': '01/19/21',
-        'tags':'Vegan',
-    },
-
-    { 
-        'list_title': "Mom's List",
-        'created_at': '01/19/21',
-        'tags':'Budget-Friendly',
-    },
-    { 
-        'list_title': "GF's List",
-        'created_at': '01/19/21',
-        'tags':'Tampons',
-    },
-    { 
-        'list_title': "Learning to Cook",
-        'created_at': '01/19/21',
-        'tags':'Beginners',
-    },
-    { 
-        'list_title': "Grandma's List",
-        'created_at': '01/19/21',
-        'tags':'Medicine',
-    },
-    { 
-        'list_title': "Missing Item for Tonight's Dinner",
-        'created_at': '01/19/21',
-        'tags':'Quick Run',
-    },
 
 
-
-]
-
-const GroceryList = () => {
+const GroceryList = ({token}) => {
     const [groceryList, setGroceryList] = useState(null)
+    
+    useEffect(() => { 
+        // axois get request for saved grocery list 
+    }, [token, setGroceryList])
+    
+    
+    // const handleSubmit = () => {
+    //     axios
+    //     .post('https://grocerease.herokuapp.com/grocerease/add_list_item/id', {
+    //         headers: {
+    //             'Content-Type': 'application/json',
+    //             Authorization: `token ${token}`,
+    //         },
+    //     })
+    //     .then((res) => setGroceryList(res.data))
 
-    useEffect(() => {
-        setGroceryList(fakeData)
-
-    }, [])
+    // }
 
     return (
+        
         <div className='grocery-list'>
 
             {groceryList &&
-                groceryList.map((grocery) => {
+                groceryList.map((cardObj) => {
                     return (
                         <GroceryCard
-                            id={grocery.id}
-                            list_title={grocery.list_title}
-                            created_at={grocery.created_at}
-                            tags={grocery.tags}
+                            name={cardObj.name}
+                            date_created={cardObj.date_created}
+                            tags={cardObj.tags}
                         />
                     )
                 })}
-                {/* <AddCard/> */}
+            <div className="search-filter">
+                <div>
+                    <label>Sort By:</label>
+                    <select className="sort-by">
+                        <option value="">Select one</option>
+                        <option value="name">Title</option>
+                        <option value="date">Date</option>
+                        <option value="tags">Tags</option>
+                    </select>
+                </div>
+                
+            </div>
+            <div>
+            </div>
         </div>
     )
 }
+
 
 export default GroceryList;
