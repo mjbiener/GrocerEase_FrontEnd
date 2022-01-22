@@ -12,6 +12,9 @@ import Login from './components/Login.js';
 import ForgotPassword from './components/ForgotPassword';
 import Logout from './components/Logout';
 import GroceryListDetail from './components/GroceryListDetail';
+import { GroceryCard } from './components/GroceryCard';
+
+
 
 
 export default function App() {
@@ -44,6 +47,7 @@ export default function App() {
         <Route path="/CreateList" element={<Createlist />} />
         <Route path="/unlisted_item" />
         <Route path="/create_list_detail" element={<GroceryListDetail listId={1}/>} />
+        {/* <Route path="/go_shopping_page" element={< />} /> */}
       </Routes>
     </Router>
     
