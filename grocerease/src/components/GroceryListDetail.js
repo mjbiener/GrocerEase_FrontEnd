@@ -26,7 +26,7 @@ const GroceryListDetail = () => {
         // count: 1,
         // image: 'https://static.libertyprim.com/files/varietes/concombre-hollandais-large.jpg?1569524167',
         // }
-
+        
 
     const axiosCall = (event) => {
         event.preventDefault()
