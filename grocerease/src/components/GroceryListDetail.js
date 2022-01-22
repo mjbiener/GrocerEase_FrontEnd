@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from 'react';
 import '../groceryListDetail.css'
 import GroceryListItem from './GroceryListItem'
-import { useLocation } from 'react-router-dom'
+import { Navigate, useLocation, useNavigate } from 'react-router-dom'
 
 const GroceryListDetail = ({token}) => {
     const location = useLocation() 
@@ -11,6 +11,7 @@ const GroceryListDetail = ({token}) => {
     const [items, setItems] = useState([]);
     const [listName, setListName] = useState('');
     const [listTags, setListTags] = useState([]);
+    const navigate = useNavigate()
 
     useEffect(() => {
         axios.get(`https://grocerease.herokuapp.com/grocerease/list_detail/${listId}`,
@@ -24,14 +25,25 @@ const GroceryListDetail = ({token}) => {
             setListName(res.data.name)
             setListTags(res.data.tags)
         })
+        axios.get(`https://grocerease.herokuapp.com/grocerease/lists/${listId}/items/`,
+        {
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `token ${token}`
+            }
+        })
+        .then (res => {
+            const newItems = [...items, ...res.data]
+            setItems(newItems)
+        })
     },
     []
     )
-    const axiosCall = (event) => {
+    const onAddProduct = (event) => {
         event.preventDefault()
-        axios.patch(`https://grocerease.herokuapp.com/grocerease/create_item/${listId}/`, 
-        { product_name: value,
-            quantity: value,
+        axios.post(`https://grocerease.herokuapp.com/grocerease/lists/${listId}/items/`, 
+        {   name: value,
+            quantity: 1,
             
         },
         {
@@ -44,15 +56,34 @@ const GroceryListDetail = ({token}) => {
             console.log(res)
             setItems([
                 ...items,
-                {name: res.name, image: res.image}
+                {name: res.data.name, item_quantity: res.data.item_quantity, image: res.data.image}
             ])
         })
     }
+    const saveList = () => {
+        axios.patch(`https://grocerease.herokuapp.com/grocerease/edit_list/${listId}/`,
+        {
+            name: listName,
+            tags: listTags,
+        },
+        {
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `token ${token}`
+            }
+        }        
+        ).then( () => {
+            navigate('/lists')
+        })
+    }
+
     return (
         <>
         <div className='list_detail_name_tag'>
-            <p className='pa2 input-reset ba bg-transparent w-100 measure search_input'>{listName}</p>
-            <p className='pa2 input-reset ba bg-transparent w-100 measure search_input'>{listTags.join(', ')}</p>
+            <input className='pa2 input-reset ba bg-transparent w-100 measure search_input' onChange={(event) => setListName(event.target.value)} value={listName}/>
+
+            <input className='pa2 input-reset ba bg-transparent w-100 measure search_input' onChange={(event) => setListTags(event.target.value.split(', '))} value={listTags.join(', .')}/> 
+            
         </div>
         <div className='search_product_container'>
             <div>
@@ -61,7 +92,7 @@ const GroceryListDetail = ({token}) => {
                 onChange={(event) => setValue(event.target.value)}></input>
             </div>
             <div>
-                <button className='add_product_button' onClick={axiosCall} type='submit'>Add Product</button>
+                <button className='add_product_button' onClick={onAddProduct} type='submit'>Add Product</button>
             </div>
         </div>
         <div>
@@ -71,7 +102,7 @@ const GroceryListDetail = ({token}) => {
             })}
         </div>
         <div className='button_container'>
-            <button className='save_list_button'>Save List</button>
+            <button className='save_list_button' onClick={saveList} >Save List</button>
             <button className='start_shopping_button'>Start Shopping</button>
         </div>
         </>
