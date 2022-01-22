@@ -1,6 +1,6 @@
 import Navbar from "./Navbar";
-import GroceryList from "./GroceryList";
 import { CreateListForm } from "./CreateListForm";
+import GroceryList from './SavedGroceryList'
 
 
 const Mainpage = ({eraseAuth, token, username}) => {

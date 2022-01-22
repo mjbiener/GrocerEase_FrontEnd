@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom"
-import GroceryList from "./GroceryList";
-import { GroceryCard } from './GroceryCard'
+// import { GroceryCard } from './GroceryCard'
+import GroceryList from './SavedGroceryList'
 
 
 export default function Createlist () {

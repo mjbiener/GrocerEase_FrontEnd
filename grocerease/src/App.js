@@ -1,4 +1,3 @@
-import GroceryList from './components/GroceryList';
 import { CreateListForm } from './components/CreateListForm';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { Register } from "./components/Register";
@@ -11,7 +10,7 @@ import Login from './components/Login.js';
 import ForgotPassword from './components/ForgotPassword';
 import Logout from './components/Logout';
 import GroceryListDetail from './components/GroceryListDetail';
-import { GroceryCard } from './components/GroceryCard';
+import GroceryList from './components/SavedGroceryList';
 
 
 
@@ -47,7 +46,7 @@ export default function App() {
         <Route path="/CreateList" element={<Createlist />} />
         <Route path="/unlisted_item" />
         <Route path="/create_list_detail" element={<GroceryListDetail listId={1}/>} />
-        {/* <Route path="/go_shopping_page" element={< />} /> */}
+        <Route path="/go_shopping_page" element={<GroceryList />} />
       </Routes>
     </Router>
     

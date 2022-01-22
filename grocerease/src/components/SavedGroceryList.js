@@ -11,17 +11,17 @@ const GroceryList = ({token}) => {
     }, [token, setGroceryList])
     
     
-    // const handleSubmit = () => {
-    //     axios
-    //     .post('https://grocerease.herokuapp.com/grocerease/add_list_item/id', {
-    //         headers: {
-    //             'Content-Type': 'application/json',
-    //             Authorization: `token ${token}`,
-    //         },
-    //     })
-    //     .then((res) => setGroceryList(res.data))
+    const handleSubmit = () => {
+        axios
+        .post('https://grocerease.herokuapp.com/grocerease/view_lists/id/', {
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `token ${token}`,
+            },
+        })
+        .then((res) => setGroceryList(res.data))
 
-    // }
+    }
 
     return (
         
@@ -47,7 +47,6 @@ const GroceryList = ({token}) => {
                         <option value="tags">Tags</option>
                     </select>
                 </div>
-                
             </div>
             <div>
             </div>
