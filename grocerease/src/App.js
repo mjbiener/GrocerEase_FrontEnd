@@ -36,17 +36,16 @@ export default function App() {
       <Routes>
         <Route path='/' element={ isLoggedIn ? <Mainpage username={username} token={token} eraseAuth={eraseAuth}/> : <Homepage />}></Route>
         <Route path='/lists' element= {<Mainpage username={username} token={token} eraseAuth={eraseAuth}/>} />
-        <Route path='/create_list' element= {<CreateListForm />} />
+        <Route path='/create_list' element= {<CreateListForm token={token} />} />
         <Route path="/register" element= {isLoggedIn ? <Mainpage username={username} token={token} eraseAuth={eraseAuth}/> : <Register setAuth={setAuth} username={username} token={token} />} />
         <Route path="/forgot_username" element={<ForgotUsername />} />
         <Route path='/logout' element={<Logout username={username} eraseAuth={eraseAuth} token={token}/>}/>
         <Route path="/login" element={isLoggedIn ? <Mainpage username={username} token={token} eraseAuth={eraseAuth}/> : <Login setAuth={setAuth} isLoggedIn={isLoggedIn}/>} />
         <Route path="/forgotPassword" element={<ForgotPassword />}/>
         <Route path="/saved_list" />
-        <Route path="/CreateList" element={<Createlist />} />
+        <Route path="/go_shopping"/>
         <Route path="/unlisted_item" />
-        <Route path="/create_list_detail" element={<GroceryListDetail listId={1}/>} />
-        <Route path="/go_shopping_page" element={<GroceryList />} />
+        <Route path="/create_list_detail" element={<GroceryListDetail token={token}/>} />
       </Routes>
     </Router>
     
