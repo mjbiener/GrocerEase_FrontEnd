@@ -10,7 +10,7 @@ const Mainpage = ({eraseAuth, token, username}) => {
             <Navbar eraseAuth= {eraseAuth} token={token} username= {username}/>
         </div>
         <div>
-            <CreateListForm />
+            <CreateListForm token={token}/>
         </div>
         <div>
             <GroceryList />
