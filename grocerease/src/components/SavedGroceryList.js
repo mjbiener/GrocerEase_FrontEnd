@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { useState, useEffect } from 'react'
-import { GroceryCard } from './GroceryCard'
+import GroceryCard from './GroceryCard'
 
 
 const GroceryList = ({token}) => {
@@ -13,7 +13,7 @@ const GroceryList = ({token}) => {
     
     const handleSubmit = () => {
         axios
-        .post('https://grocerease.herokuapp.com/grocerease/view_lists/id/', {
+        .post('https://grocerease.herokuapp.com/grocerease/lists', {
             headers: {
                 'Content-Type': 'application/json',
                 Authorization: `token ${token}`,
@@ -30,7 +30,7 @@ const GroceryList = ({token}) => {
             {groceryList &&
                 groceryList.map((cardObj) => {
                     return (
-                        <GroceryCard
+                        <GroceryList
                             name={cardObj.name}
                             date_created={cardObj.date_created}
                             tags={cardObj.tags}

@@ -42,7 +42,7 @@ export default function App() {
         <Route path='/logout' element={<Logout username={username} eraseAuth={eraseAuth} token={token}/>}/>
         <Route path="/login" element={isLoggedIn ? <Mainpage username={username} token={token} eraseAuth={eraseAuth}/> : <Login setAuth={setAuth} isLoggedIn={isLoggedIn}/>} />
         <Route path="/forgotPassword" element={<ForgotPassword />}/>
-        <Route path="/saved_list" />
+        <Route path="/saved_list" element={<GroceryList />} />
         <Route path="/go_shopping"/>
         <Route path="/unlisted_item" />
         <Route path="/create_list_detail" element={<GroceryListDetail token={token}/>} />
