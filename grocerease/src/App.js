@@ -28,16 +28,16 @@ export default function App() {
   }
 
   const isLoggedIn = username && token
-
+  
   return (
     <Router>
       <Routes>
         <Route path='/' element={ isLoggedIn ? <Mainpage username={username} token={token} eraseAuth={eraseAuth}/> : <Homepage />}></Route>
         <Route path='/lists' element= {<Mainpage username={username} token={token} eraseAuth={eraseAuth}/>} />
-        <Route path="/register" element= {isLoggedIn ? <Mainpage username={username} token={token} eraseAuth={eraseAuth}/> : <Register setAuth={setAuth} username={username} token={token} />} />
+        <Route path="/register" element= { isLoggedIn ? <Mainpage username={username} token={token} eraseAuth={eraseAuth}/> : <Register setAuth={setAuth} username={username} token={token} isLoggedIn={isLoggedIn}/>} />
         <Route path="/forgot_username" element={<ForgotUsername />} />
         <Route path='/logout' element={<Logout username={username} eraseAuth={eraseAuth} token={token}/>}/>
-        <Route path="/login" element={isLoggedIn ? <Mainpage username={username} token={token} eraseAuth={eraseAuth}/> : <Login setAuth={setAuth} isLoggedIn={isLoggedIn}/>} />
+        <Route path="/login" element={ <Login setAuth={setAuth} isLoggedIn={isLoggedIn}/>} />
         <Route path="/forgotPassword" element={<ForgotPassword />}/>
         <Route path="/saved_list" element={<SavedGroceryList token={token} />} />
         <Route path="/go_shopping"/>
