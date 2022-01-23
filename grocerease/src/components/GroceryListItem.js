@@ -1,7 +1,8 @@
 import { useState } from 'react'
 
 const GroceryListItem = ({item}) => {
-    const [itemCount, setItemCount] = useState(item.count);
+    console.log(item)
+    const [itemCount, setItemCount] = useState(item.item_quantity);
 
     return (
     <div className='grocery_list'>
@@ -12,7 +13,7 @@ const GroceryListItem = ({item}) => {
             <div className='grocery_item_text'>
                 <h2>{item.name}</h2>
                 <input className='item_count'
-                    type='text'
+                    type='number'
                     value={itemCount}
                     onChange={(event) => setItemCount(event.target.value)}>
                 </input>
