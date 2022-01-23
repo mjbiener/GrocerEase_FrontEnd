@@ -1,6 +1,6 @@
 import Navbar from "./Navbar";
-import GroceryList from "./GroceryList";
 import { CreateListForm } from "./CreateListForm";
+import SavedGroceryList from './SavedGroceryList'
 
 
 const Mainpage = ({eraseAuth, token, username}) => {
@@ -13,7 +13,7 @@ const Mainpage = ({eraseAuth, token, username}) => {
             <CreateListForm token={token}/>
         </div>
         <div>
-            <GroceryList />
+            <SavedGroceryList token={token} />
         </div>
         </>
 );
