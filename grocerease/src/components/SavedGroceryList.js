@@ -3,8 +3,8 @@ import { useState, useEffect } from 'react'
 import { GroceryCard } from './GroceryCard'
 
 
-const GroceryList = ({token}) => {
-    const [groceryList, setGroceryList] = useState(null)
+const SavedGroceryList = ({token}) => {
+    const [lists, setLists] = useState([])
     
     useEffect(() => {
         console.log(token)
@@ -12,38 +12,27 @@ const GroceryList = ({token}) => {
         .get('https://grocerease.herokuapp.com/grocerease/lists/', {
             headers: {
                 'Content-Type': 'application/json',
-                 Authorization: `token ${token}`,
+                    Authorization: `token ${token}`,
 
             } 
     })
-    .then((res) => {setGroceryList(res.data)
+    .then((res) => {setLists(res.data)
                     console.log(res.data)})
-    .catch(error => console.log(error))}, [token, setGroceryList])
+    .catch(error => console.log(error))}, [token, setLists])
     
-    
-    const handleSubmit = () => {
-        axios
-        .get('https://grocerease.herokuapp.com/grocerease/list_detail/id/', {
-            headers: {
-                'Content-Type': 'application/json',
-                Authorization: `token ${token}`,
-            },
-        })
-        .then((res) => setGroceryList(res.data))
-
-    }
-
     return (
         
         <div className='grocery-list'>
 
-            {groceryList &&
-                groceryList.map((cardObj) => {
+            {lists &&
+                lists.map((list) => {
+                    console.log(list)
                     return (
                         <GroceryCard
-                            name={cardObj.name}
-                            date_created={cardObj.date_created}
-                            tags={cardObj.tags}
+                            name={list.name}
+                            date_created={list.date_created}
+                            tags={list.tags}
+                            listId={list.pk}
                         />
                     )
                 })}
@@ -65,4 +54,4 @@ const GroceryList = ({token}) => {
 }
 
 
-export default GroceryList;
+export default SavedGroceryList;
