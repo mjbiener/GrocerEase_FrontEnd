@@ -1,14 +1,14 @@
 import { useState } from 'react';
 import axios from 'axios';
 import '../register.css';
-import { useNavigate } from 'react-router-dom'
 
-export const Register = ({ setAuth }) => {
+
+export const Register = ({ setAuth, isLoggedIn }) => {
     const [password, setPassword] = useState('')
     const [username, setUsername] = useState('')
     const [email, setEmail] = useState('')
-    const navigate = useNavigate()
-
+    
+    
     const handleSubmit = (event) => {
         event.preventDefault()
         axios
@@ -29,7 +29,7 @@ export const Register = ({ setAuth }) => {
                         }
                     })
             })
-            navigate('/lists')
+            
         }
 
         const handleChange = (inputType, event) => {

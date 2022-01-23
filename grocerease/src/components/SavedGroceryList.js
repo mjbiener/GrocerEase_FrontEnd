@@ -7,7 +7,6 @@ const SavedGroceryList = ({token}) => {
     const [lists, setLists] = useState([])
     
     useEffect(() => {
-        console.log(token)
         axios
         .get('https://grocerease.herokuapp.com/grocerease/lists/', {
             headers: {
