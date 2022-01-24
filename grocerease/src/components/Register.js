@@ -77,9 +77,6 @@ export const Register = ({ setAuth, isLoggedIn }) => {
                             Create Account
                         </button>
                     </div>
-                    <div className="mt3">
-                        <a className="f4 fw6 db blue no-underline underline-hover" href='/forgot_username'>Forgot Username</a>
-                    </div>
                 </form>
             </div>
         )}
