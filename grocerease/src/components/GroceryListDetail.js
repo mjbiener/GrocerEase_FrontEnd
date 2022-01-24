@@ -11,7 +11,7 @@ const GroceryListDetail = ({token}) => {
     const [items, setItems] = useState([]);
     const [listName, setListName] = useState('');
     const [listTags, setListTags] = useState([]);
-    const navigate = useNavigate()
+    const navigate = useNavigate();
 
     useEffect(() => {
         axios.get(`https://grocerease.herokuapp.com/grocerease/list_detail/${listId}`,
