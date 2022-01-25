@@ -33,7 +33,7 @@ const SavedGroceryList = ({token}) => {
                         />
                     )
                 })}
-            <div className="search-filter">
+            {/* <div className="search-filter">
                 <div>
                     <label>Sort By:</label>
                     <select className="sort-by">
@@ -45,7 +45,7 @@ const SavedGroceryList = ({token}) => {
                 </div>
             </div>
             <div>
-            </div>
+            </div> */}
         </div>
     )
 }

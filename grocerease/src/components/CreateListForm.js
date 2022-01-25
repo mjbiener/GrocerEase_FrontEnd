@@ -46,6 +46,21 @@ export const CreateListForm= ({token, setSubmitted}) => {
                 />
                 <button onClick={handleSubmit}> Create New List </button>
             </form>
-        </div>
+
+                    <div className="search-filter">
+                <div>
+                    <label>Sort By:</label>
+                    <select className="sort-by">
+                        <option value="">Select one</option>
+                        <option value="name">Title</option>
+                        <option value="date">Date</option>
+                        <option value="tags">Tags</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+            </div>
+            </div>
+
     )
 }
