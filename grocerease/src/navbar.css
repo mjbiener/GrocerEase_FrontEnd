@@ -1,21 +1,19 @@
 .navbar_container {
     display: flex;
     border: 2px solid black;
+    justify-content: flex-end;
+    height: 32px;
+    background-color: rgb(244, 239, 239);
 }
 
 .navbar {
-    display: flex;
-    width: 150px;
-    
+    display: flex;    
 }
 
 .logout_button {
-    margin: 8px;
     display: flex;
-    justify-content: flex-end;
-}
-
-.title {
-    display: flex;
-    justify-content: start;
+    height: 15px;
+    margin-right: 8px;
+    margin-top: 2px;
+    color:rgb(7, 69, 7);
 }

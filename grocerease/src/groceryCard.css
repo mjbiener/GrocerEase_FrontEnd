@@ -1,0 +1,20 @@
+.groceryList_container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    background-color: rgb(246, 240, 240);
+}
+
+.groceryCard {
+    border-radius: 8px;
+    margin: 16px;
+    background-image: url('https://image.freepik.com/free-photo/assortment-tropical-fruits-white-background_23-2148144248.jpg');
+    background-size: contain;
+    color: black;
+    font-size:large;
+    font-weight: 900;
+    text-align: center;
+}
+
+

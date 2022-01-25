@@ -5,11 +5,8 @@ import '../navbar.css'
 const Navbar = ({username, token, eraseAuth}) => {
 
     return (
-    <div className="pa3 pa4-ns navbar_container">
-        <nav>
-            <div className='title'>
-                <h1>Grocerease</h1>
-            </div> 
+    <div> 
+        <nav className="navbar_container">
             <div className='logout_button'>
                 <Logout username={username} token={token} eraseAuth={eraseAuth} className='logout_button'/>
             </div>

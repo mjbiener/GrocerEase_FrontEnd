@@ -1,3 +1,23 @@
+.title_container {
+    display: flex;
+    justify-content: center;
+    background-image: url('https://fodmap-publicsite-us-east-2.s3.amazonaws.com/production/media/images/AdobeStock_106603916.original.jpg');
+    background-size: cover;
+}
+
+.img {
+    width: 1vh;
+    object-fit: fill;
+}
+
+.title {
+    font-family: 'Mochiy Pop P One', sans-serif;
+    font-size: 200px;
+    font-weight: 700;
+    color: rgb(7, 69, 7);
+    font-size: 96px;
+}
+
 header {
     display: flex;
     justify-content: center;

@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { useState, useEffect } from 'react'
 import { GroceryCard } from './GroceryCard'
-
+import '../groceryCard.css'
 
 const SavedGroceryList = ({token}) => {
     const [lists, setLists] = useState([])
@@ -20,7 +20,7 @@ const SavedGroceryList = ({token}) => {
     
     return (
         
-        <div className='grocery-list'>
+        <div className='groceryList_container'>
             {lists &&
                 lists.map((list) => {
                     console.log(list)

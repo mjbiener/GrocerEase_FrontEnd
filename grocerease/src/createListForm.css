@@ -1,0 +1,23 @@
+.createListForm_container {
+    display: flex;
+    justify-content: center;
+    padding: 16px;
+    flex-wrap: wrap;
+    background-color: rgb(244, 239, 239);
+}
+
+.createListInput {
+    margin: 16px;
+    width: 500px;
+    border-radius: 10px;
+    height: 56px;
+}
+
+
+.createListFormButton {
+    border-radius: 5px;
+    width: 100px;
+    background-color: rgb(239, 232, 232);
+    margin-top: 19px;
+    margin-left: 16px;
+}
