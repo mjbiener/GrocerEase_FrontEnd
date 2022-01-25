@@ -1,9 +1,4 @@
-import { useState, useEffect } from 'react'
-import axios from 'axios'
-import { useParams } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
-
-// shows the information that will be shown on each Grocery Card before clicking on the Details button 
 
 export const GroceryCard = ({ name, date_created, tags, listId }) => {
     const navigate = useNavigate()

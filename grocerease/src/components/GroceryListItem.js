@@ -1,8 +1,18 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 const GroceryListItem = ({item}) => {
     console.log(item)
     const [itemCount, setItemCount] = useState(item.item_quantity);
+
+useEffect(() => {
+    if  (localStorage.getItem("quantityCount")) {
+        setItemCount(JSON.parse(localStorage.getItem("quantityCount")))
+    }
+}, [])   
+
+useEffect (() => {
+    localStorage.setItem("quantityCount", JSON.stringify(itemCount))
+ }, [itemCount])
 
     return (
     <div className='grocery_list'>
