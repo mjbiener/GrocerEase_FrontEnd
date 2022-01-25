@@ -18,7 +18,7 @@ const Logout = ({username, token, eraseAuth}) => {
     
     return (
         <div>
-            <button onClick={onClick}>Logout</button>
+            <p className="f4 fw6 db dark-blue no-underline underline-hover" onClick={onClick}>Logout</p>
         </div>
     )
 }

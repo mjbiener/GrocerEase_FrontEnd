@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import axios from "axios"
 import { useNavigate } from 'react-router-dom'
-
+import '../login.css'
 
 export default function Login ({ isLoggedIn, setAuth})  {
     const [username, setUsername] = useState('')
@@ -27,7 +27,7 @@ export default function Login ({ isLoggedIn, setAuth})  {
       }
       
         return (
-          <div className="pa4 black-80">
+          <div className="pa4 black-80 login_container">
             <form onSubmit={handleSubmit}>
                 <div className="mt3">
                     <label className="db fw4 lh-copy f6">

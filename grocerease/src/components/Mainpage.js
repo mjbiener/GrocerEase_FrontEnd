@@ -6,7 +6,7 @@ import SavedGroceryList from './SavedGroceryList'
 const Mainpage = ({eraseAuth, token, username}) => {
     return (
         <>
-        <div className="navbar_container">
+        <div>
             <Navbar eraseAuth= {eraseAuth} token={token} username= {username}/>
         </div>
         <div>
