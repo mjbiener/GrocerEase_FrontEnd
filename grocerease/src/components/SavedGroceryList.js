@@ -1,24 +1,45 @@
 import axios from 'axios'
 import { useState, useEffect } from 'react'
 import { GroceryCard } from './GroceryCard'
+import { sortBy } from 'lodash';
 
 
-const SavedGroceryList = ({token}) => {
+const SavedGroceryList = ({ token }) => {
     const [lists, setLists] = useState([])
-    
+
     useEffect(() => {
         axios
-        .get('https://grocerease.herokuapp.com/grocerease/lists/', {
-            headers: {
-                'Content-Type': 'application/json',
+            .get('https://grocerease.herokuapp.com/grocerease/lists/', {
+                headers: {
+                    'Content-Type': 'application/json',
                     Authorization: `token ${token}`,
-            } 
-    })
-    .then((res) => {setLists(res.data)
-                    console.log(res.data)})
-    .catch(error => console.log(error))}, [token, setLists])
-    
+                }
+            })
+            .then((res) => {
+                setLists(res.data)
+                console.log(res.data)
+            })
+            .catch(error => console.log(error))
+    }, [token, setLists])
+
+
     return (
+
+//  update the state of items need the sort function (lodash ), order by, sort by, collection: sort by, order by or group by 
+    <div>
+        <div className="search-filter">
+        <div>
+            <label>Sort By:</label>
+            <select className="sort-by">
+                <option value="">Select one</option>
+                <option value="name">Title</option>
+                <option value="date">Date</option>
+            </select>
+            
+        </div>
+    </div>
+
+
         
         <div className='grocery-list'>
             {lists &&
@@ -33,19 +54,7 @@ const SavedGroceryList = ({token}) => {
                         />
                     )
                 })}
-            {/* <div className="search-filter">
-                <div>
-                    <label>Sort By:</label>
-                    <select className="sort-by">
-                        <option value="">Select one</option>
-                        <option value="name">Title</option>
-                        <option value="date">Date</option>
-                        <option value="tags">Tags</option>
-                    </select>
-                </div>
-            </div>
-            <div>
-            </div> */}
+        </div>
         </div>
     )
 }
