@@ -41,7 +41,7 @@ const GroceryListDetail = ({token}) => {
     )
     const onAddProduct = (event) => {
         event.preventDefault()
-        axios.post(`https://grocerease.herokuapp.com/grocerease/lists/${listId}/items/`, 
+        axios.put(`https://grocerease.herokuapp.com/grocerease/lists/${listId}/items/`, 
         {   name: value,
             quantity:1,
             
@@ -97,7 +97,7 @@ const GroceryListDetail = ({token}) => {
         </div>
         <div>
             {items.map((item) => {
-                return ( <GroceryListItem item={item}/>
+                return ( <GroceryListItem listId={listId} token={token} item={item}/>
                 )
             })}
         </div>

@@ -1,20 +1,14 @@
 import { useState, useEffect } from 'react'
+import axios from 'axios';
 
-const GroceryListItem = ({item}) => {
+
+const GroceryListItem = ({item, token, listId}) => {
     console.log(item)
-    const [itemCount, setItemCount] = useState(item.item_quantity);
+    const [itemData, setItemData] = useState(item);
+    const [itemCount,setItemCount] = useState(item.item_quantity);
+    
 
-useEffect(() => {
-    if  (localStorage.getItem("quantityCount")) {
-        setItemCount(JSON.parse(localStorage.getItem("quantityCount")))
-    }
-}, [])   
-
-useEffect (() => {
-    localStorage.setItem("quantityCount", JSON.stringify(itemCount))
- }, [itemCount])
-
-    return (
+return (
     <div className='grocery_list'>
         <div className='grocery_item_detail'>
             <div className='delete_button'>
@@ -24,8 +18,12 @@ useEffect (() => {
                 <h2>{item.name}</h2>
                 <input className='item_count'
                     type='number'
-                    value={itemCount}
-                    onChange={(event) => setItemCount(event.target.value)}>
+                    value={itemData.item_quantity}
+                    onChange={(event) => {
+                        setItemCount(event.target.value);
+                        axios.post(`https://grocerease.herokuapp.com/grocerease/lists/${listId}/items/`,
+                        {})
+                        }}>
                 </input>
                 <p className='count'>ct.</p>
             </div>
