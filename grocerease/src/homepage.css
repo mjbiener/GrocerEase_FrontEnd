@@ -14,8 +14,9 @@
     font-family: 'Mochiy Pop P One', sans-serif;
     font-size: 200px;
     font-weight: 700;
-    color: rgb(7, 69, 7);
+    color: #6A7152;
     font-size: 96px;
+    text-shadow: 2px 2px black;
 }
 
 header {

@@ -46,18 +46,18 @@ export const Register = ({ setAuth, isLoggedIn }) => {
 
         return (
             <div className="pa4 black-80 register_container">
-                <form className="sign-up_submit" onSubmit={handleSubmit}>
+                <form onSubmit={handleSubmit}>
                     <div className="mt3">
-                        <label className="db fw4 lh-copy f6">Username:</label>
-                        <input className="pa2 input-reset ba bg-transparent w-100 measure" 
+                        <label className="db fw4 lh-copy f6 register_label">Username:</label>
+                        <input className="pa2 input-reset ba bg-transparent w-100 measure register_input" 
                             type="text"
                             placeholder="JohnSmith88"
                             value={username}
                             onChange={(e) => handleChange('username', e)}/>
                     </div>
                     <div className="mt3">
-                        <label className="db fw4 lh-copy f6">Password:</label>
-                        <input className="pa2 input-reset ba bg-transparent w-100 measure"
+                        <label className="db fw4 lh-copy f6 register_label">Password:</label>
+                        <input className="pa2 input-reset ba bg-transparent w-100 measure register_input"
                             placeholder="password"
                             type="password"
                             value={password}
@@ -65,16 +65,16 @@ export const Register = ({ setAuth, isLoggedIn }) => {
                         />
                     </div>
                     <div className="mt3">
-                        <label className="db fw4 lh-copy f6">Email:</label>
-                        <input className="pa2 input-reset ba bg-transparent w-100 measure"
+                        <label className="db fw4 lh-copy f6 register_label">Email:</label>
+                        <input className="pa2 input-reset ba bg-transparent w-100 measure register_input"
                             type="text"
                             placeholder="JohnSmith@gmail.com"
                             value={email}
                             onChange={(e) => handleChange('email', e)}/>
                     </div>
                     <div className="mt3">
-                        <button className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6" type="submit">
-                            Create Account
+                        <button className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 register_button" type="submit">
+                            Submit
                         </button>
                     </div>
                 </form>

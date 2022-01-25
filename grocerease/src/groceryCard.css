@@ -3,18 +3,31 @@
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: center;
-    background-color: rgb(246, 240, 240);
+    background-color: rgb(233, 218, 195);
 }
 
 .groceryCard {
-    border-radius: 8px;
     margin: 16px;
-    background-image: url('https://image.freepik.com/free-photo/assortment-tropical-fruits-white-background_23-2148144248.jpg');
-    background-size: contain;
-    color: black;
-    font-size:large;
-    font-weight: 900;
+    background-color: rgb(190, 210, 145);
+    border-radius: 10px;
+    padding: 2rem;
+    min-height: 175px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     text-align: center;
+    width: 198px;
 }
 
 
+.details_button {
+    width: 64px;
+}
+
+
+/* https://p0.pxfuel.com/preview/927/734/407/close-up-fruit-green-healthy.jpg kiwi by itself */
+
+/* https://image.freepik.com/free-photo/assortment-tropical-fruits-white-background_23-2148144248.jpg tropical fruits on the left with mostly light grey background 2/3 right */
+
+/* https://p0.pxfuel.com/preview/640/604/860/carrot-leaf-flora-nature.jpg carrot in the middle with white background */

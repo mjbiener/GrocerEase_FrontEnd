@@ -3,7 +3,8 @@
     border: 2px solid black;
     justify-content: flex-end;
     height: 32px;
-    background-color: rgb(244, 239, 239);
+    background-color: rgb(233, 218, 195);
+    border-color: #462521;
 }
 
 .navbar {
@@ -15,5 +16,6 @@
     height: 15px;
     margin-right: 8px;
     margin-top: 2px;
-    color:rgb(7, 69, 7);
+    color:#462521;
+    border-color: #462521;
 }

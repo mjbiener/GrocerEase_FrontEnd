@@ -19,7 +19,7 @@ const Logout = ({username, token, eraseAuth}) => {
     
     return (
         <div>
-            <a class="f4 fw6 db dark-green no-underline underline-hover" href="#0"onClick={onClick}>Logout</a>
+            <a class="f4 fw6 db dark-blue no-underline underline-hover logout_button" href="#0" onClick={onClick}>Logout</a>
         </div>
     )
 }

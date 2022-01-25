@@ -2,4 +2,18 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: rgb(233, 218, 195);
+}
+
+.login_label {
+    color:#462521;
+}
+
+.login_input {
+    border-color: #462521;    
+}
+
+.login_button {
+    border-color: #462521;
+    color:#462521;
 }

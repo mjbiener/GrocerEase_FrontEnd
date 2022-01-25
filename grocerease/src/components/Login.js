@@ -30,10 +30,10 @@ export default function Login ({ isLoggedIn, setAuth})  {
           <div className="pa4 black-80 login_container">
             <form onSubmit={handleSubmit}>
                 <div className="mt3">
-                    <label className="db fw4 lh-copy f6">
+                    <label className="db fw4 lh-copy f6 login_label">
                     Username: 
                     </label>
-                    <input className="pa2 input-reset ba bg-transparent w-100 measure"
+                    <input className="pa2 input-reset ba bg-transparent w-100 measure login_label"
                         type="text"
                         id="username"
                         placeholder="JohnSmith88"
