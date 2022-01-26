@@ -12,7 +12,6 @@ const SavedGroceryList = ({token}) => {
             headers: {
                 'Content-Type': 'application/json',
                     Authorization: `token ${token}`,
-
             } 
     })
     .then((res) => {setLists(res.data)
@@ -22,7 +21,6 @@ const SavedGroceryList = ({token}) => {
     return (
         
         <div className='grocery-list'>
-
             {lists &&
                 lists.map((list) => {
                     console.log(list)
