@@ -41,7 +41,7 @@ const GroceryListDetail = ({token}) => {
     )
     const onAddProduct = (event) => {
         event.preventDefault()
-        axios.put(`https://grocerease.herokuapp.com/grocerease/lists/${listId}/items/`, 
+        axios.post(`https://grocerease.herokuapp.com/grocerease/lists/${listId}/items/`, 
         {   name: value,
             quantity:1,
             
