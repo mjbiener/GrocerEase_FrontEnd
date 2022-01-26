@@ -5,6 +5,8 @@
     align-items: center;
     margin: 100px 100px;
     background-color: rgb(233, 218, 195);
+    height: 100vh;
+
 }
 
 .register_input {

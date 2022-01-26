@@ -85,7 +85,7 @@ const GroceryListDetail = ({token}) => {
 
                 <input className='pa2 input-reset ba bg-transparent w-100 measure search_input list_name_category_input' onChange={(event) => setListTags(event.target.value.split(', '))} value={listTags.join(', .')}/> 
             </div>
-
+            
             <div className='add_product_container'>
                 <div>
                     <input className='pa2 input-reset ba bg-transparent w-100 measure add_product_input' type="text" id="products" value={value}
@@ -109,7 +109,7 @@ const GroceryListDetail = ({token}) => {
                 <button className='save_list_button' onClick={saveList} >Save List</button>
                 <button className='start_shopping_button'>Start Shopping</button>
             </div>
-            
+
         </div>
         </>
     )

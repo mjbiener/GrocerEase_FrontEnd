@@ -45,7 +45,7 @@ export const Register = ({ setAuth, isLoggedIn }) => {
         }
 
         return (
-            <div className="pa4 black-80 register_container">
+            <div className="register_container">
                 <form onSubmit={handleSubmit}>
                     <div className="mt3">
                         <label className="db fw4 lh-copy f6 register_label">Username:</label>

@@ -18,6 +18,19 @@ const SavedGroceryList = ({token}) => {
                     console.log(res.data)})
     .catch(error => console.log(error))}, [token, setLists])
     
+    const DeleteList = (listId) => {
+        axios.delete(`https://grocerease.herokuapp.com/grocerease/delete_list/${listId}`,
+        {
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `token ${token}`
+            }
+        })
+        .then (res => {
+            setLists(lists.filter(list => (list.pk !== listId)))
+        })
+    }    
+
     return (
         
         <div className='groceryList_container'>
@@ -30,7 +43,7 @@ const SavedGroceryList = ({token}) => {
                             date_created={list.date_created}
                             tags={list.tags}
                             listId={list.pk}
-                        />
+                            onDelete={DeleteList}                        />
                     )
                 })}
             <div className="search-filter">
