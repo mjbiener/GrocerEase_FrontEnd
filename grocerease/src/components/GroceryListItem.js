@@ -2,7 +2,7 @@ import { useState } from 'react'
 import axios from 'axios';
 
 
-const GroceryListItem = ({item, token, listId}) => {
+const GroceryListItem = ({item, token}) => {
     console.log(item)
     const [itemData, setItemData] = useState(item);
     const [itemCount,setItemCount] = useState(item.item_quantity);
@@ -21,7 +21,7 @@ return (
                     value={itemCount}
                     onChange={(event) => {
                         setItemCount(event.target.value);
-                        axios.patch(`https://grocerease.herokuapp.com/grocerease/item_detail/${listId}/`,
+                        axios.patch(`https://grocerease.herokuapp.com/grocerease/item_detail/${item.item_quantity}/`,
                         console.log(event),
                         {
                          quantity: item.item_quantity,
