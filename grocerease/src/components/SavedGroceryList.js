@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { useState, useEffect } from 'react'
 import { GroceryCard } from './GroceryCard'
-
+import '../groceryCard.css'
 
 const SavedGroceryList = ({token}) => {
     const [lists, setLists] = useState([])
@@ -18,9 +18,22 @@ const SavedGroceryList = ({token}) => {
                     console.log(res.data)})
     .catch(error => console.log(error))}, [token, setLists])
     
+    const DeleteList = (listId) => {
+        axios.delete(`https://grocerease.herokuapp.com/grocerease/delete_list/${listId}`,
+        {
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `token ${token}`
+            }
+        })
+        .then (res => {
+            setLists(lists.filter(list => (list.pk !== listId)))
+        })
+    }    
+
     return (
         
-        <div className='grocery-list'>
+        <div className='groceryList_container'>
             {lists &&
                 lists.map((list) => {
                     console.log(list)
@@ -30,7 +43,7 @@ const SavedGroceryList = ({token}) => {
                             date_created={list.date_created}
                             tags={list.tags}
                             listId={list.pk}
-                        />
+                            onDelete={DeleteList}                        />
                     )
                 })}
             <div className="search-filter">

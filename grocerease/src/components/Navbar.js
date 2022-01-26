@@ -5,9 +5,13 @@ import '../navbar.css'
 const Navbar = ({username, token, eraseAuth}) => {
 
     return (
-    <nav className='navbar'> 
-        <Logout username={username} token={token} eraseAuth={eraseAuth} className='logout_button'/>
-    </nav>
+    <div> 
+        <nav className="navbar_container">
+            <div className='logout_button'>
+                <Logout username={username} token={token} eraseAuth={eraseAuth} className='logout_button'/>
+            </div>
+        </nav>
+    </div>
 );
 };
 
