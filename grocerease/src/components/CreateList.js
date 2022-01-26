@@ -10,19 +10,18 @@ let navigate = useNavigate();
 return (
 <div>
 <div className="ListNa">
-       <label className="db fw4 lh-copy f6" htmlFor="">List Name:</label>
-       <input className="pa2 input-reset ba bg-transparent w-100 measure" type="text" name='text' placeholder='Name your List'/>
-       <button>Submit</button> 
+        <label className="db fw4 lh-copy f6" htmlFor="">List Name:</label>
+        <input className="pa2 input-reset ba bg-transparent w-100 measure" type="text" name='text' placeholder='Name your List'/>
+        <button>Submit</button> 
     </div>
         <div className="ListTa">
         <label className="db fw4 lh-copy f6" htmlFor="">List Tag:</label>
         <input className="pa2 input-reset ba bg-transparent w-100 measure" type="text" name='text' placeholder='Name your Tag'/>
         <button>Submit</button> 
-     </div>
+    </div>
 
 <div>
- <GroceryList />
- 
+    <GroceryList />
 </div>
 
 <div className="startshop">

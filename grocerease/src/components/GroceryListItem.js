@@ -15,7 +15,7 @@ return (
                 <i className='fas fa-times-circle fa-3x'></i>
             </div>
             <div className='grocery_item_text'>
-                <h2>{item.name}</h2>
+                <h2 className='item_name'>{item.name}</h2>
                 <input className='item_count'
                     type='number'
                     value={itemCount}
@@ -29,9 +29,6 @@ return (
                 </input>
                 <p className='count'>ct.</p>
             </div>
-        </div>
-        <div>         
-            <img src={item.image} alt=''></img>
         </div>
     </div>
 )
