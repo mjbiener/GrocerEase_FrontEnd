@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import axios from 'axios';
 
 
@@ -18,12 +18,14 @@ return (
                 <h2>{item.name}</h2>
                 <input className='item_count'
                     type='number'
-                    value={itemData.item_quantity}
+                    value={itemCount}
                     onChange={(event) => {
                         setItemCount(event.target.value);
-                        axios.post(`https://grocerease.herokuapp.com/grocerease/lists/${listId}/items/`,
-                        {})
-                        }}>
+                        axios.patch(`https://grocerease.herokuapp.com/grocerease/item_detail/${listId}/`,
+                        console.log(event),
+                        {
+                         quantity: item.item_quantity,
+                        })}}>
                 </input>
                 <p className='count'>ct.</p>
             </div>
