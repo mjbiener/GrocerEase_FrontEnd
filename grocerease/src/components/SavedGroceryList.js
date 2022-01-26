@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { useState, useEffect } from 'react'
 import { GroceryCard } from './GroceryCard'
-import { sortBy } from 'lodash';
+import _ from "lodash";
 
 
 const SavedGroceryList = ({ token }) => {
@@ -23,38 +23,44 @@ const SavedGroceryList = ({ token }) => {
     }, [token, setLists])
 
 
+
+
     return (
 
-//  update the state of items need the sort function (lodash ), order by, sort by, collection: sort by, order by or group by 
-    <div>
-        <div className="search-filter">
+        //  update the state of items need the sort function (lodash ), order by, sort by, collection: sort by, order by or group by 
         <div>
-            <label>Sort By:</label>
-            <select className="sort-by">
-                <option value="">Select one</option>
-                <option value="name">Title</option>
-                <option value="date">Date</option>
-            </select>
-            
-        </div>
-    </div>
+            <div className="search-filter">
+                <div>
+                    <label>Sort By:</label>
 
 
-        
-        <div className='grocery-list'>
-            {lists &&
-                lists.map((list) => {
-                    console.log(list)
-                    return (
-                        <GroceryCard
-                            name={list.name}
-                            date_created={list.date_created}
-                            tags={list.tags}
-                            listId={list.pk}
-                        />
-                    )
-                })}
-        </div>
+                    <select className="sort-by">
+                        <option value="">Select one</option>
+                        <option value="name">Title</option>
+                        <option value="date">Date</option>
+                    </select>
+
+ 
+
+                </div>
+            </div>
+
+
+            <div className='grocery-list'>
+                {lists &&
+                    lists.map((list) => {
+                        console.log(list)
+                        return (
+                            <GroceryCard
+                                name={list.name}
+                                date_created={list.date_created}
+                                tags={list.tags}
+                                listId={list.pk}
+                            />
+                        )
+                    })}
+
+            </div>
         </div>
     )
 }
