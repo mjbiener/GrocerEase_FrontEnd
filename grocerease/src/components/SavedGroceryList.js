@@ -23,6 +23,7 @@ const SavedGroceryList = ({ token }) => {
     }, [token, setLists])
 
 
+    _.orderBy(lists, ['name'], ['asc', 'desc']);
 
 
     return (
@@ -32,7 +33,6 @@ const SavedGroceryList = ({ token }) => {
             <div className="search-filter">
                 <div>
                     <label>Sort By:</label>
-
 
                     <select className="sort-by">
                         <option value="">Select one</option>
