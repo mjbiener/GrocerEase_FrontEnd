@@ -1,6 +1,7 @@
 import axios from 'axios'
 import { useState, useEffect } from 'react'
 import { GroceryCard } from './GroceryCard'
+import moment from 'moment'
 import _ from 'lodash'
 
 const SavedGroceryList = ({ token }) => {
@@ -62,7 +63,7 @@ const SavedGroceryList = ({ token }) => {
                             onDelete={DeleteList} />
                     )
                 })}
-            {/* <div className="search-filter">
+            <div className="search-filter">
                 <div>
                     <label>Sort By:</label>
                     <select className="sort-by">
@@ -70,7 +71,7 @@ const SavedGroceryList = ({ token }) => {
                         <option value="name">Title</option>
                     </select>
                 </div>
-            </div> */}
+            </div>
             <div>
             </div>
         </div>
