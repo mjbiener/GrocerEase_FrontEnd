@@ -1,7 +1,6 @@
 import axios from 'axios'
 import { useState, useEffect } from 'react'
 import { GroceryCard } from './GroceryCard'
-import moment from 'moment'
 import _ from 'lodash'
 
 const SavedGroceryList = ({ token }) => {
@@ -48,22 +47,46 @@ const SavedGroceryList = ({ token }) => {
 
     return (
 
-        
-        
+        // <div>
+        //             <div className="search-filter">
+        //     <div>
+        //         <label>Sort By:</label>
+        //         <select className="sort-by">
+        //             <option value="">Select one</option>
+        //             <option value="name">Title</option>
+        //         </select>
+        //     </div>
+        // </div>
+
+
         <div className='groceryList_container'>
-            {lists &&
-                lists.map((list) => {
-                    console.log(list)
-                    return (
-                        <GroceryCard
-                            name={list.name}
-                            date_created={list.date_created}
-                            tags={list.tags}
-                            listId={list.pk}
-                            onDelete={DeleteList} />
-                    )
-                })}
-            <div className="search-filter">
+            <div>
+                <div className="search-filter">
+                    <div>
+                        <label>Sort By:</label>
+                        <select className="sort-by">
+                            <option value="">Select one</option>
+                            <option value="name">Title</option>
+                        </select>
+                    </div>
+                </div>
+
+                {
+                    lists &&
+                    lists.map((list) => {
+                        console.log(list)
+                        return (
+
+                            <GroceryCard
+                                name={list.name}
+                                date_created={list.date_created}
+                                tags={list.tags}
+                                listId={list.pk}
+                                onDelete={DeleteList} />
+                        )
+                    })
+                }
+                {/* <div className="search-filter">
                 <div>
                     <label>Sort By:</label>
                     <select className="sort-by">
@@ -73,10 +96,11 @@ const SavedGroceryList = ({ token }) => {
                 </div>
             </div>
             <div>
+            </div> */}
             </div>
-        </div>
-    )
+            </div>
+            )
 }
 
 
-export default SavedGroceryList;
+            export default SavedGroceryList;
