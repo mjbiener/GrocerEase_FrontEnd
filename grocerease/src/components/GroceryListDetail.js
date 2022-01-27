@@ -61,11 +61,12 @@ const GroceryListDetail = ({token}) => {
         })
     }
     const saveList = () => {
-        axios.patch(`https://grocerease.herokuapp.com/grocerease/edit_list/${items.pk}/`,
+        axios.patch(`https://grocerease.herokuapp.com/grocerease/edit_list/${listId}/`,
         {
             name: listName,
             tags: listTags,
         },
+        console.log(listId),
         {
             headers: {
                 'Content-Type': 'application/json',

@@ -21,11 +21,12 @@ return (
                     value={itemCount}
                     onChange={(event) => {
                         setItemCount(event.target.value);
+                        console.log({itemCount})
                         axios.patch(`https://grocerease.herokuapp.com/grocerease/item_detail/${item.pk}/`,
                         console.log(event),
                         {
                          quantity: item.item_quantity,
-                        })}}>
+                        },console.log(item.item_quantity))}}>    
                 </input>
                 <p className='count'>ct.</p>
             </div>
