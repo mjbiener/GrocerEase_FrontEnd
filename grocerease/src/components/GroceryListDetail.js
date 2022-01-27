@@ -79,31 +79,37 @@ const GroceryListDetail = ({token}) => {
 
     return (
         <>
-        <div className='list_detail_name_tag'>
-            <input className='pa2 input-reset ba bg-transparent w-100 measure search_input' onChange={(event) => setListName(event.target.value)} value={listName}/>
+        <div className="list_details_page_container">
+            <div className='list_detail_container'>
+                <input className='pa2 input-reset ba bg-transparent w-100 measure search_input list_name_category_input' onChange={(event) => setListName(event.target.value)} value={listName}/>
 
-            <input className='pa2 input-reset ba bg-transparent w-100 measure search_input' onChange={(event) => setListTags(event.target.value.split(', '))} value={listTags.join(', .')}/> 
+                <input className='pa2 input-reset ba bg-transparent w-100 measure search_input list_name_category_input' onChange={(event) => setListTags(event.target.value.split(', '))} value={listTags.join(', .')}/> 
+            </div>
             
-        </div>
-        <div className='search_product_container'>
-            <div>
-                <input className='pa2 input-reset ba bg-transparent w-100 measure search_input' type="text" id="products" value={value} 
-                placeholder='Search for products'
-                onChange={(event) => setValue(event.target.value)}></input>
+            <div className='add_product_container'>
+                <div>
+                    <input className='pa2 input-reset ba bg-transparent w-100 measure add_product_input' type="text" id="products" value={value}
+                    placeholder='Search for products'
+                    onChange={(event) => setValue(event.target.value)}></input>
+                </div>
+
+                <div>
+                    <button className='add_product_button' onClick={onAddProduct} type='submit'>Add Product</button>
+                </div>
             </div>
+
             <div>
-                <button className='add_product_button' onClick={onAddProduct} type='submit'>Add Product</button>
+                {items.map((item) => {
+                    return ( <GroceryListItem item={item}/>
+                    )
+                })}
             </div>
-        </div>
-        <div>
-            {items.map((item) => {
-                return ( <GroceryListItem item={item}/>
-                )
-            })}
-        </div>
-        <div className='button_container'>
-            <button className='save_list_button' onClick={saveList} >Save List</button>
-            <button className='start_shopping_button'>Start Shopping</button>
+
+            <div className='button_container'>
+                <button className='save_list_button' onClick={saveList} >Save List</button>
+                <button className='start_shopping_button'>Start Shopping</button>
+            </div>
+
         </div>
         </>
     )
