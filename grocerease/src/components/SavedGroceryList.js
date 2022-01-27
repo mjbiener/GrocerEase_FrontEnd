@@ -55,9 +55,7 @@ const SavedGroceryList = ({ token }) => {
                 <div className="search-filter">
                     <div>
                         <label>Sort By:</label>
-                        <select 
-                        className="sort-by"
-                        >
+                        <select className="sort-by">
                             <option value="">Select one</option>
                             <option value="date_created">Date</option>
                         </select>
