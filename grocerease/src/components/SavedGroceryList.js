@@ -20,7 +20,7 @@ const SavedGroceryList = ({ token }) => {
                 console.log(saved_lists_from_server)
                 const sorted_lists = _.orderBy(
                     saved_lists_from_server,
-                    ['name'],
+                    ['date_created'],
                     ['asc']
                 )
                 console.log({ sorted_lists })
