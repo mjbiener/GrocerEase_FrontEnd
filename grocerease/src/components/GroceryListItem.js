@@ -21,7 +21,7 @@ return (
                     value={itemCount}
                     onChange={(event) => {
                         setItemCount(event.target.value);
-                        axios.patch(`https://grocerease.herokuapp.com/grocerease/${item.pk}/`,
+                        axios.patch(`https://grocerease.herokuapp.com/grocerease/item_detail/${item.pk}/`,
                         console.log(event),
                         {
                          quantity: item.item_quantity,
