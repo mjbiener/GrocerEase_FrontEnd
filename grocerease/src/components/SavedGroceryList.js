@@ -5,7 +5,7 @@ import _ from 'lodash'
 
 const SavedGroceryList = ({ token }) => {
     const [lists, setLists] = useState([])
-
+// currently you are hard coding for the sort by function, get this function to render the name/titles in order, then you will be done with this function
     useEffect(() => {
         axios
             .get('https://grocerease.herokuapp.com/grocerease/lists/', {
@@ -21,7 +21,7 @@ const SavedGroceryList = ({ token }) => {
                 const sorted_lists = _.orderBy(
                     saved_lists_from_server,
                     ['date_created'],
-                    ['asc']
+                    ['desc']
                 )
                 console.log({ sorted_lists })
                 setLists(sorted_lists)
@@ -44,29 +44,22 @@ const SavedGroceryList = ({ token }) => {
                 setLists(lists.filter((list) => list.pk !== listId))
             })
     }
+    
+        
+
+    
 
     return (
-
-        // <div>
-        //             <div className="search-filter">
-        //     <div>
-        //         <label>Sort By:</label>
-        //         <select className="sort-by">
-        //             <option value="">Select one</option>
-        //             <option value="name">Title</option>
-        //         </select>
-        //     </div>
-        // </div>
-
-
         <div className='groceryList_container'>
             <div>
                 <div className="search-filter">
                     <div>
                         <label>Sort By:</label>
-                        <select className="sort-by">
+                        <select 
+                        className="sort-by"
+                        >
                             <option value="">Select one</option>
-                            <option value="name">Title</option>
+                            <option value="date_created">Date</option>
                         </select>
                     </div>
                 </div>
@@ -86,17 +79,6 @@ const SavedGroceryList = ({ token }) => {
                         )
                     })
                 }
-                {/* <div className="search-filter">
-                <div>
-                    <label>Sort By:</label>
-                    <select className="sort-by">
-                        <option value="">Select one</option>
-                        <option value="name">Title</option>
-                    </select>
-                </div>
-            </div>
-            <div>
-            </div> */}
             </div>
             </div>
             )
