@@ -3,6 +3,7 @@ import moment from 'moment'
 import '../groceryCard.css'
 import { Card, CardMedia, CardActions, Button, CardContent, Typography, } from '@mui/material';
 import pattern from '../pattern_hexagon.png';
+import  { yellow } from '@mui/material/colors';
 
 
 export const GroceryCard = ({ name, date_created, tags, listId, onDelete }) => {
@@ -11,8 +12,9 @@ export const GroceryCard = ({ name, date_created, tags, listId, onDelete }) => {
 
     return (
         <Card style={{ marginBottom: "15px" }}>
+        
             <CardMedia image={pattern} height="10" component="img" style={{ height: "100px" }} />
-            <CardContent>
+            <CardContent style={{ backgroundColor: "#EEB61B"}}>
                 <Typography gutterBottom variant="h5" component="div">
                     {name}
                 </Typography>
