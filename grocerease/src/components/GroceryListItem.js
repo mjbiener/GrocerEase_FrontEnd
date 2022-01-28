@@ -18,6 +18,7 @@ const GroceryListItem = ({item, token}) => {
         .then (res => {
             setItemData(item.filter(itemData => (item !== item.pk)))
         })
+        .catch(error => {setItemCount()})
     }
     
 

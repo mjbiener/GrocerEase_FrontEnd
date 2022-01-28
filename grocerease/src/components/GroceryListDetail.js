@@ -59,9 +59,10 @@ const GroceryListDetail = ({token}) => {
             console.log(res, 'items endpoint')
             setItems([
                 ...items,
-                {name: res.data.name, item_quantity: res.data.item_quantity, choices: res.data.choices}
+                {pk: res.data.pk, name: res.data.name, item_quantity: res.data.item_quantity, choices: res.data.choices}
             ])
         })
+        .catch(error => {console.log(error)})
     }
     const saveList = () => {
         axios.patch(`https://grocerease.herokuapp.com/grocerease/edit_list/${listId}/`,
@@ -78,6 +79,7 @@ const GroceryListDetail = ({token}) => {
         ).then( () => {
             navigate('/lists')
         })
+        .catch(error => {console.log(error)})
     }
 
     return (
