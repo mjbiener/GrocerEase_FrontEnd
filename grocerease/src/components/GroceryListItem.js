@@ -12,12 +12,15 @@ const GroceryListItem = ({item}) => {
             </div>
             <div className='grocery_item_text'>
                 <h2 className='item_name'>{item.name}</h2>
-                <input className='item_count'
-                    type='number'
-                    value={itemCount}
-                    onChange={(event) => setItemCount(event.target.value)}>
-                </input>
-                <p className='count'>ct.</p>
+                <div className='item_count_container'>
+                    <input className='item_count'
+                        type='number'
+                        value={itemCount}
+                        onChange={(event) => setItemCount(event.target.value)}>
+                    </input>
+                    <p className='count'>ct.</p>
+                </div>
+                <p>{item.choices}</p>
             </div>
         </div>
     </div>
