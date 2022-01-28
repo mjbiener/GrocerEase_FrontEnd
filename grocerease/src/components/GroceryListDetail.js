@@ -22,6 +22,7 @@ const GroceryListDetail = ({token}) => {
             }
         })
         .then (res => {
+            console.log(res)
             setListName(res.data.name)
 
         })
@@ -113,22 +114,12 @@ const GroceryListDetail = ({token}) => {
             </div>
             <div className="items_container">
                 {items.map((item) => {
-                    return ( <GroceryListItem item={item}/>
+                    return ( <GroceryListItem token={token} item={item}/>
                     )
                 })}
             </div>
         </div>
-        <div>
-            {items.map((item) => {
-                return ( <GroceryListItem listId={listId} token={token} item={item}/>
-                )
-            })}
-        </div>
 
-            <div className='button_container'>
-                <button className='save_list_button' onClick={saveList} >Save List</button>
-                <button className='start_shopping_button'>Start Shopping</button>
-            </div>
         </>
     )
 }

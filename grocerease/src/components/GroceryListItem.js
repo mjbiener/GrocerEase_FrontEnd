@@ -1,18 +1,35 @@
 import { useState } from 'react'
-// import axios from 'axios';
+import axios from 'axios';
 
 
 const GroceryListItem = ({item, token}) => {
     console.log(item)
     const [itemData, setItemData] = useState(item);
-    const [itemCount,setItemCount] = useState(item.item_quantity);
+    const [itemCount,setItemCount] = useState();
+
+    const deleteItem = (item) => {
+        axios.delete(`https://grocerease.herokuapp.com/grocerease/delete_item/${item.pk}/`,
+        {
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `token ${token}`
+            },
+        })
+        .then (res => {
+            setItemData(item.filter(itemData => (item !== item.pk)))
+        })
+    }
     
 
 return (
     <div className='grocery_list'>
         <div className='grocery_item_detail'>
             <div className='delete_button'>
-                <i className='fas fa-times-circle fa-3x'></i>
+                <i className='fas fa-times-circle fa-3x' onClick={(event) => {
+                    event.preventDefault()
+                    deleteItem(item)
+                }}>
+                </i>
             </div>
             <div className='grocery_item_text'>
                 <h2 className='item_name'>{item.name}</h2>
@@ -38,10 +55,10 @@ return (
                     <p className='count'>ct.</p>
                 </div>
                 <p>{item.choices}</p>
+                </div>
             </div>
         </div>
-    </div>
-)
-}
+)}
+
 
 export default GroceryListItem;
