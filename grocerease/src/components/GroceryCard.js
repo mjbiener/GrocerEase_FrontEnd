@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom'
 import moment from 'moment'
 import '../groceryCard.css'
-import { Card, CardMedia, CardActions, Button, CardContent, Typography } from '@mui/material';
+import { Card, CardMedia, CardActions, Button, CardContent, Typography, } from '@mui/material';
 import pattern from '../pattern_hexagon.png';
 
 
