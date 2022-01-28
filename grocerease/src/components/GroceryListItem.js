@@ -15,10 +15,6 @@ const GroceryListItem = ({item, token}) => {
                 Authorization: `token ${token}`
             },
         })
-        .then (res => {
-            setItemData(item.filter(itemData => (item !== item.pk)))
-        })
-        .catch(error => {setItemCount()})
     }
     
 
