@@ -2,7 +2,7 @@ import { useState } from 'react'
 import axios from 'axios';
 
 
-const GroceryListItem = ({item, token}) => {
+const GroceryListItem = ({item, token, onGrabList}) => {
     console.log(item)
     const [itemData, setItemData] = useState();
     const [itemCount,setItemCount] = useState();
@@ -15,7 +15,11 @@ const GroceryListItem = ({item, token}) => {
                 Authorization: `token ${token}`
             },
         })
-    }
+        .then(() => {
+        console.log("here")    
+         onGrabList();   
+        }
+        )}
     
 
 return (

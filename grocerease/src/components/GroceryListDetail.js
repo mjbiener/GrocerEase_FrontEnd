@@ -13,7 +13,7 @@ const GroceryListDetail = ({token}) => {
     const [choices, setChoices] = useState('Produce');
     const navigate = useNavigate();
 
-    useEffect(() => {
+    const GrabListDetails = () => {
         axios.get(`https://grocerease.herokuapp.com/grocerease/list_detail/${listId}`,
         {
             headers: {
@@ -26,6 +26,8 @@ const GroceryListDetail = ({token}) => {
             setListName(res.data.name)
 
         })
+    }
+    const GrabList = () => {    
         axios.get(`https://grocerease.herokuapp.com/grocerease/lists/${listId}/items/`,
         {
             headers: {
@@ -35,9 +37,14 @@ const GroceryListDetail = ({token}) => {
         })
         .then (res => {
             console.log(res, 'get items')
-            const newItems = [...items, ...res.data]
-            setItems(newItems)
+            // const newItems = [...items, ...res.data]
+            setItems(res.data)
         })
+    }
+    
+    useEffect(() => {
+        GrabListDetails()
+        GrabList()
     },
     []
     )
@@ -116,7 +123,7 @@ const GroceryListDetail = ({token}) => {
             </div>
             <div className="items_container">
                 {items.map((item) => {
-                    return ( <GroceryListItem token={token} item={item}/>
+                    return ( <GroceryListItem onGrabList={GrabList} token={token} item={item}/>
                     )
                 })}
             </div>
