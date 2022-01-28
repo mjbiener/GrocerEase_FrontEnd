@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import axios from 'axios';
+// import axios from 'axios';
 
 
 const GroceryListItem = ({item, token}) => {
@@ -16,7 +16,7 @@ return (
             </div>
             <div className='grocery_item_text'>
                 <h2 className='item_name'>{item.name}</h2>
-                <input className='item_count'
+                {/* <input className='item_count'
                     type='number'
                     value={itemCount}
                     onChange={(event) => {
@@ -27,8 +27,17 @@ return (
                         {
                          quantity: item.item_quantity,
                         },console.log(item.item_quantity))}}>    
-                </input>
+                </input> */}
                 <p className='count'>ct.</p>
+                <div className='item_count_container'>
+                    <input className='item_count'
+                        type='number'
+                        value={itemCount}
+                        onChange={(event) => setItemCount(event.target.value)}>
+                    </input>
+                    <p className='count'>ct.</p>
+                </div>
+                <p>{item.choices}</p>
             </div>
         </div>
     </div>
