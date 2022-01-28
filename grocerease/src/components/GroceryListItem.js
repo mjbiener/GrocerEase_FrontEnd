@@ -4,7 +4,7 @@ import axios from 'axios';
 
 const GroceryListItem = ({item, token}) => {
     console.log(item)
-    const [itemData, setItemData] = useState(item);
+    const [itemData, setItemData] = useState();
     const [itemCount,setItemCount] = useState();
 
     const deleteItem = (item) => {
@@ -34,18 +34,6 @@ return (
             </div>
             <div className='grocery_item_text'>
                 <h2 className='item_name'>{item.name}</h2>
-                {/* <input className='item_count'
-                    type='number'
-                    value={itemCount}
-                    onChange={(event) => {
-                        setItemCount(event.target.value);
-                        console.log({itemCount})
-                        axios.patch(`https://grocerease.herokuapp.com/grocerease/item_detail/${item.pk}/`,
-                        console.log(event),
-                        {
-                         quantity: item.item_quantity,
-                        },console.log(item.item_quantity))}}>    
-                </input> */}
                 <p className='count'>ct.</p>
                 <div className='item_count_container'>
                     <input className='item_count'
