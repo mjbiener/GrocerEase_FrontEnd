@@ -10,7 +10,7 @@ const GroceryListDetail = ({token}) => {
     const [value, setValue] = useState('');
     const [items, setItems] = useState([]);
     const [listName, setListName] = useState('');
-    const [listTags, setListTags] = useState([]);
+    const [choices, setChoices] = useState('Produce');
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -23,7 +23,7 @@ const GroceryListDetail = ({token}) => {
         })
         .then (res => {
             setListName(res.data.name)
-            setListTags(res.data.tags)
+
         })
         axios.get(`https://grocerease.herokuapp.com/grocerease/lists/${listId}/items/`,
         {
@@ -33,6 +33,7 @@ const GroceryListDetail = ({token}) => {
             }
         })
         .then (res => {
+            console.log(res, 'get items')
             const newItems = [...items, ...res.data]
             setItems(newItems)
         })
@@ -41,10 +42,11 @@ const GroceryListDetail = ({token}) => {
     )
     const onAddProduct = (event) => {
         event.preventDefault()
+        console.log(choices)
         axios.post(`https://grocerease.herokuapp.com/grocerease/lists/${listId}/items/`, 
         {   name: value,
             quantity: 1,
-            
+            choices: choices,
         },
         {
             headers: {
@@ -53,10 +55,10 @@ const GroceryListDetail = ({token}) => {
             }
         }
         ).then (res => {
-            console.log(res)
+            console.log(res, 'items endpoint')
             setItems([
                 ...items,
-                {name: res.data.name, item_quantity: res.data.item_quantity, image: res.data.image}
+                {name: res.data.name, item_quantity: res.data.item_quantity, choices: res.data.choices}
             ])
         })
     }
@@ -64,7 +66,6 @@ const GroceryListDetail = ({token}) => {
         axios.patch(`https://grocerease.herokuapp.com/grocerease/edit_list/${listId}/`,
         {
             name: listName,
-            tags: listTags,
         },
         {
             headers: {
@@ -83,7 +84,15 @@ const GroceryListDetail = ({token}) => {
             <div className='list_detail_container'>
                 <input className='pa2 input-reset ba bg-transparent w-100 measure search_input list_name_category_input' onChange={(event) => setListName(event.target.value)} value={listName}/>
 
-                <input className='pa2 input-reset ba bg-transparent w-100 measure search_input list_name_category_input' onChange={(event) => setListTags(event.target.value.split(', '))} value={listTags.join(', .')}/> 
+                <select className='' onChange={(event) => setChoices(event.target.value)} value={choices}>
+                    <option value='Produce'>Produce</option>
+                    <option value="Dairy">Dairy</option>
+                    <option value="Baked Goods">Baked Goods</option>
+                    <option value="Meat and Fish">Meat and Fish</option>
+                    <option value="Snacks">Snacks</option>
+                    <option value="Alcohol">Alcohol</option>
+                    <option value="Baby Care">Baby Care</option>
+                </select>
             </div>
             
             <div className='add_product_container'>
@@ -97,17 +106,15 @@ const GroceryListDetail = ({token}) => {
                     <button className='add_product_button' onClick={onAddProduct} type='submit'>Add Product</button>
                 </div>
             </div>
-
-            <div>
+            <div className='button_container'>
+                <button className='save_list_button' onClick={saveList} >Save List</button>
+                <button className='start_shopping_button'>Start Shopping</button>
+            </div>
+            <div className="items_container">
                 {items.map((item) => {
                     return ( <GroceryListItem item={item}/>
                     )
                 })}
-            </div>
-
-            <div className='button_container'>
-                <button className='save_list_button' onClick={saveList} >Save List</button>
-                <button className='start_shopping_button'>Start Shopping</button>
             </div>
 
         </div>

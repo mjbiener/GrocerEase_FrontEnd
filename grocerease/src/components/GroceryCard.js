@@ -11,7 +11,6 @@ export const GroceryCard = ({ name, date_created, tags, listId, onDelete }) => {
             <div onClick={() => {navigate(`/create_list_detail?id=${listId}`)}}>
                 <h2> {name}</h2>
                 <p>{moment(date_created).format('MMMM Do YYYY, h:mm:ss a')} </p>
-                <p>{date_created} </p>
             </div>
             <i className='fas fa-times-circle fa' onClick={(event) => {
                     event.preventDefault()
