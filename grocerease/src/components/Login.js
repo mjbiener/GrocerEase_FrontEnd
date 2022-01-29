@@ -29,13 +29,18 @@ export default function Login({ isLoggedIn, setAuth }) {
   }
 
   return (
-    <div className="pa4 black-80 login_container">
       <Container style={{ backgroundColor: "#EEB61B" }}>
       
         <Typography variant="h3" color="#FFF8F0" gutterBottom component="div">
           GrocerEase
         </Typography>
-        </Container>
+        <section>
+        <Typography variant="h5" color="#FFF8F0">
+          Quick, Fast and with Ease, Shop GrocerEase
+        </Typography>
+        </section>
+
+
       <form onSubmit={handleSubmit}>
         <div className="mt3">
           <label className="db fw4 lh-copy f6 login_label">
@@ -64,7 +69,7 @@ export default function Login({ isLoggedIn, setAuth }) {
           <button className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6" type="submit">Login</button>
         </div>
       </form>
-    </div>
+    </Container>
   )
 }
 
