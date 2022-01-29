@@ -108,7 +108,7 @@ const GroceryListDetail = ({token}) => {
             </div>
             <div className='button_container'>
                 <button className='save_list_button' onClick={saveList} >Save List</button>
-                <button className='start_shopping_button'>Start Shopping</button>
+                <button onClick={() => {navigate(`/go_shopping?ide=${listId}`)}} className='start_shopping_button'>Start Shopping</button>
             </div>
             <div className="items_container">
                 {items.map((item) => {
