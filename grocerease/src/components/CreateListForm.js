@@ -2,6 +2,10 @@ import { useState } from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import '../createListForm.css'
+import * as React from 'react';
+import CssBaseline from '@mui/material/CssBaseline';
+import Container from '@mui/material/Container';
+
 
 
 export const CreateListForm = ({ token }) => {
@@ -39,7 +43,10 @@ export const CreateListForm = ({ token }) => {
 
     return (
         <>
-            <div className='createListForm_container'>
+                <React.Fragment>
+            <CssBaseline />
+
+            <Container style={{ backgroundColor: "#FFF8F0"  }}>
                 <div>
                     <form onSubmit={handleSubmit}>
                     <label>List Name:</label>
@@ -55,7 +62,9 @@ export const CreateListForm = ({ token }) => {
                     <button className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 createListFormButton" onClick={handleSubmit}> Create New List </button>
                 </div>
 
-            </div>
+            </Container>
+            </React.Fragment>
+
             
         </>
     )
