@@ -62,7 +62,6 @@ const SavedGroceryList = ({ token }) => {
                             lists.map((list) => {
                                 console.log(list)
                                 return (
-
                                     <GroceryCard
                                         name={list.name}
                                         date_created={list.date_created}
