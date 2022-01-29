@@ -14,19 +14,19 @@ export const GroceryCard = ({ name, date_created, tags, listId, onDelete }) => {
         <Card style={{ marginBottom: "15px" }}>
         
             <CardMedia image={pattern} height="10" component="img" style={{ height: "100px" }} />
-            <CardContent style={{ backgroundColor: "#EEB61B"}}>
-                <Typography gutterBottom variant="h5" component="div">
+            <CardContent style={{ backgroundColor: "#EEB61B"}} >
+                <Typography style={{ backgroundColor: "#EEB61B"}} gutterBottom variant="h5" component="div" color="#FFF8F0">
                     {name}
                 </Typography>
 
 
-                <Typography variant="body2" color="text.secondary">
+                <Typography variant="body2" color="#FFF8F0">
                     <i style={{marginRight: '5px'}} class="fa fa-calendar" aria-hidden="true"></i>
                     {moment(date_created).format('MMMM Do YYYY')}
                 </Typography>
             </CardContent>
 
-            <CardActions>
+            <CardActions style={{ backgroundColor: "#EEB61B"}}>
                 <Button size="small" onClick={() => { navigate(`/create_list_detail?id=${listId}`) }}>Details</Button>
                 <Button size="small" onClick={(event) => {
                     event.preventDefault()
