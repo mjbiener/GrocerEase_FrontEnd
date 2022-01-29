@@ -20,15 +20,15 @@ export const GroceryCard = ({ name, date_created, tags, listId, onDelete }) => {
                 </Typography>
 
 
-                <Typography variant="body2" color="#FFF8F0">
+                <Typography variant="body1" color="#FFF8F0">
                     <i style={{marginRight: '5px'}} class="fa fa-calendar" aria-hidden="true"></i>
                     {moment(date_created).format('MMMM Do YYYY')}
                 </Typography>
             </CardContent>
 
             <CardActions style={{ backgroundColor: "#EEB61B"}}>
-                <Button size="small" onClick={() => { navigate(`/create_list_detail?id=${listId}`) }}>Details</Button>
-                <Button size="small" onClick={(event) => {
+                <Button variant="body2" color="#FFF8F0" size="small" onClick={() => { navigate(`/create_list_detail?id=${listId}`) }}>Details</Button>
+                <Button variant="body2" color="#FFF8F0" size="small" onClick={(event) => {
                     event.preventDefault()
                     onDelete(listId)
                 }}>Delete</Button>
