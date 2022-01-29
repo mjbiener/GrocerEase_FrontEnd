@@ -89,9 +89,17 @@ const GroceryListDetail = ({token}) => {
                     <option value="Dairy">Dairy</option>
                     <option value="Baked Goods">Baked Goods</option>
                     <option value="Meat and Fish">Meat and Fish</option>
+                    <option value="Frozen Goods">Frozen Goods</option>
                     <option value="Snacks">Snacks</option>
                     <option value="Alcohol">Alcohol</option>
                     <option value="Baby Care">Baby Care</option>
+                    <option value="Canned Goods">Canned Goods</option>
+                    <option value="Dry Goods">Dry Goods</option>
+                    <option value="Sauces and Condiments">Sauces and Condiments</option>
+                    <option value="Herbs and Spices">Herbs and Spices</option>
+                    <option value="Non-Alcoholic Beverages">Non-Alcoholic Beverages</option>
+                    <option value="Household and Cleaning">Household and Cleaning</option>
+                    <option value="Health and Beauty">Health and Beauty</option>
                 </select>
             </div>
             
@@ -112,7 +120,7 @@ const GroceryListDetail = ({token}) => {
             </div>
             <div className="items_container">
                 {items.map((item) => {
-                    return ( <GroceryListItem item={item}/>
+                    return ( <GroceryListItem item={item} token={token}/>
                     )
                 })}
             </div>

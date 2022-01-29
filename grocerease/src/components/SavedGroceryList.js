@@ -65,7 +65,6 @@ const SavedGroceryList = ({ token }) => {
                                     <GroceryCard
                                         name={list.name}
                                         date_created={list.date_created}
-                                        tags={list.tags}
                                         listId={list.pk}
                                         onDelete={DeleteList} />
                                 )

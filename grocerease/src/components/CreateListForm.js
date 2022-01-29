@@ -33,8 +33,6 @@ const CreateListForm = ({ token }) => {
         }
     }
 
-    
-
 
 
     return (
