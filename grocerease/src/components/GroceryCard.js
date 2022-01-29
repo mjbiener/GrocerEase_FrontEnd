@@ -3,7 +3,7 @@ import moment from 'moment'
 import '../groceryCard.css'
 import { Card, CardMedia, CardActions, Button, CardContent, Typography, } from '@mui/material';
 import pattern from '../pattern_hexagon.png';
-import  { yellow } from '@mui/material/colors';
+
 
 
 export const GroceryCard = ({ name, date_created, tags, listId, onDelete }) => {
@@ -27,8 +27,8 @@ export const GroceryCard = ({ name, date_created, tags, listId, onDelete }) => {
             </CardContent>
 
             <CardActions style={{ backgroundColor: "#EEB61B"}}>
-                <Button variant="body2" color="#FFF8F0" size="small" onClick={() => { navigate(`/create_list_detail?id=${listId}`) }}>Details</Button>
-                <Button variant="body2" color="#FFF8F0" size="small" onClick={(event) => {
+                <Button style={{ color: "#FFF8F0" }} size="small" onClick={() => { navigate(`/create_list_detail?id=${listId}`) }}>Details</Button>
+                <Button style={{ color: "#FFF8F0" }}  size="small" onClick={(event) => {
                     event.preventDefault()
                     onDelete(listId)
                 }}>Delete</Button>
