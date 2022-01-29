@@ -2,11 +2,10 @@ import { useState } from 'react'
 import axios from 'axios';
 
 
-const GroceryListItem = ({item, token, onGrabList}) => {
+const GroceryListItem = ({item, token, onGrabList, onUpdateCount}) => {
     console.log(item)
-    const [itemData, setItemData] = useState();
-    const [itemCount,setItemCount] = useState();
 
+    
     const deleteItem = (item) => {
         axios.delete(`https://grocerease.herokuapp.com/grocerease/delete_item/${item.pk}/`,
         {
@@ -34,12 +33,11 @@ return (
             </div>
             <div className='grocery_item_text'>
                 <h2 className='item_name'>{item.name}</h2>
-                <p className='count'>ct.</p>
                 <div className='item_count_container'>
                     <input className='item_count'
                         type='number'
-                        value={itemCount}
-                        onChange={(event) => setItemCount(event.target.value)}>
+                        value={item.quantity}
+                        onChange={(event) => onUpdateCount(item.pk, event.target.value)}>
                     </input>
                     <p className='count'>ct.</p>
                 </div>
