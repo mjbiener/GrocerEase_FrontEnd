@@ -11,7 +11,7 @@ export const GroceryCard = ({ name, date_created, tags, listId, onDelete }) => {
 
 
     return (
-        <Card style={{ marginBottom: "15px" }}>
+        <Card style={{marginTop: "25px", marginBottom: "25px"}}>
         
             <CardMedia image={pattern} height="10" component="img" style={{ height: "100px" }} />
             <CardContent style={{ backgroundColor: "#EEB61B"}} >

@@ -5,6 +5,8 @@ import '../createListForm.css'
 import * as React from 'react';
 import CssBaseline from '@mui/material/CssBaseline';
 import Container from '@mui/material/Container';
+import Button from '@mui/material/Button';
+
 
 
 
@@ -37,35 +39,35 @@ export const CreateListForm = ({ token }) => {
         }
     }
 
-    
+
 
 
 
     return (
         <>
-                <React.Fragment>
-            <CssBaseline />
+            <React.Fragment>
+                <CssBaseline />
 
-            <Container style={{ backgroundColor: "#FFF8F0"  }}>
-                <div>
-                    <form onSubmit={handleSubmit}>
-                    <label>List Name:</label>
-                        <input className="createListInput"
-                        type='text' 
-                        placeholder="List's Name"
-                        value={name} 
-                        onChange={(event) => handleChange('name', event)}
-                        />
-                    </form>
-                </div>
-                <div>
-                    <button className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 createListFormButton" onClick={handleSubmit}> Create New List </button>
-                </div>
+                <Container style={{ backgroundColor: "#FFF8F0" }}>
+                    <div>
+                        <form onSubmit={handleSubmit}>
+                            <label>List Name:</label>
+                            <input className="createListInput"
+                                type='text'
+                                placeholder="List's Name"
+                                value={name}
+                                onChange={(event) => handleChange('name', event)}
+                            />
+                        </form>
+                    </div>
+                    <div>
+                        <Button size="medium" onClick={handleSubmit}> Create New List </Button>
+                    </div>
 
-            </Container>
+                </Container>
             </React.Fragment>
 
-            
+
         </>
     )
 }
