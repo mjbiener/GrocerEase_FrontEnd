@@ -3,6 +3,10 @@ import { useEffect, useState } from 'react';
 import '../groceryListDetail.css'
 import GroceryListItem from './GroceryListItem'
 import { useLocation, useNavigate } from 'react-router-dom'
+import * as React from 'react';
+import CssBaseline from '@mui/material/CssBaseline';
+import Container from '@mui/material/Container';
+
 
 const GroceryListDetail = ({token}) => {
     const location = useLocation() 
@@ -80,7 +84,10 @@ const GroceryListDetail = ({token}) => {
 
     return (
         <>
-        <div className="list_details_page_container">
+                <React.Fragment>
+            <CssBaseline />
+
+            <Container style={{ backgroundColor: "#FFF8F0"  }}>
             <div className='list_detail_container'>
                 <input className='pa2 input-reset ba bg-transparent w-100 measure search_input list_name_category_input' onChange={(event) => setListName(event.target.value)} value={listName}/>
 
@@ -116,8 +123,10 @@ const GroceryListDetail = ({token}) => {
                     )
                 })}
             </div>
+            </Container>
+            </React.Fragment>
 
-        </div>
+
         </>
     )
 }
