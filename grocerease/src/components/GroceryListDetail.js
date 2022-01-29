@@ -13,9 +13,6 @@ const GroceryListDetail = ({token}) => {
     const [choices, setChoices] = useState('Produce');
     const navigate = useNavigate();
 
-    const UpdateCount = (id,quantity) => {
-        const newItems = items.map(id => {console.log(items,'items,', id,'id', quantity,'quantity')})
-    }
     
     const GrabListDetails = () => {
         axios.get(`https://grocerease.herokuapp.com/grocerease/list_detail/${listId}`,
@@ -125,7 +122,7 @@ const GroceryListDetail = ({token}) => {
             </div>
             <div className="items_container">
                 {items.map((item) => {
-                    return ( <GroceryListItem  onUpdateCount={UpdateCount} onGrabList={GrabList} token={token} item={item}/>
+                    return ( <GroceryListItem onGrabList={GrabList} token={token} item={item}/>
                     )
                 })}
             </div>

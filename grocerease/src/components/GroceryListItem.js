@@ -2,7 +2,7 @@ import { useState } from 'react'
 import axios from 'axios';
 
 
-const GroceryListItem = ({item, token, onGrabList, onUpdateCount}) => {
+const GroceryListItem = ({item, token, onGrabList}) => {
     console.log(item)
 
     
