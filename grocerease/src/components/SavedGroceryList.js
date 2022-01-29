@@ -3,6 +3,10 @@ import { useState, useEffect } from 'react'
 import { GroceryCard } from './GroceryCard'
 import _ from 'lodash'
 import '../groceryCard.css'
+import * as React from 'react';
+import CssBaseline from '@mui/material/CssBaseline';
+import Container from '@mui/material/Container';
+
 
 const SavedGroceryList = ({ token }) => {
     const [lists, setLists] = useState([])
@@ -32,52 +36,58 @@ const SavedGroceryList = ({ token }) => {
 
 
     const DeleteList = (listId) => {
-                        axios.delete(`https://grocerease.herokuapp.com/grocerease/delete_list/${listId}`,
-                            {
-                                headers: {
-                                    'Content-Type': 'application/json',
-                                    Authorization: `token ${token}`
-                                }
-                            })
-                            .then(res => {
-                                setLists(lists.filter(list => (list.pk !== listId)))
-                            })
-                    }
+        axios.delete(`https://grocerease.herokuapp.com/grocerease/delete_list/${listId}`,
+            {
+                headers: {
+                    'Content-Type': 'application/json',
+                    Authorization: `token ${token}`
+                }
+            })
+            .then(res => {
+                setLists(lists.filter(list => (list.pk !== listId)))
+            })
+    }
 
-                    return (
+    return (
+        <React.Fragment>
+            <CssBaseline />
 
-                    <div className='groceryList_container'>
+            <Container style={{ backgroundColor: "#FFF8F0"  }}>
+
+                <div>
+                    <div className="search-filter">
                         <div>
-                            <div className="search-filter">
-                                <div>
-                                    <label>Sort By:</label>
-                                    <select className="sort-by">
-                                        <option value="">Select one</option>
-                                        <option value="date_created">Date</option>
-                                    </select>
-                                </div>
-                            </div>
-                            {
-                            lists &&
-                            lists.map((list) => {
-                                console.log(list)
-                                return (
-                                    <GroceryCard
-                                        name={list.name}
-                                        date_created={list.date_created}
-                                        tags={list.tags}
-                                        listId={list.pk}
-                                        onDelete={DeleteList} />
-                                )
-                            })
-                        }
-
+                            <label>Sort By:</label>
+                            <select className="sort-by">
+                                <option value="">Select one</option>
+                                <option value="date_created">Date</option>
+                            </select>
                         </div>
                     </div>
+                    {
+                        lists &&
+                        lists.map((list) => {
+                            console.log(list)
+                            return (
+                                <GroceryCard
+                                    name={list.name}
+                                    date_created={list.date_created}
+                                    tags={list.tags}
+                                    listId={list.pk}
+                                    onDelete={DeleteList} />
+                            )
+                        })
+                    }
+
+                </div>
+            </Container>
+            </React.Fragment>
 
 
-                )
+
+
+            )
 }
 
 
-                export default SavedGroceryList;
+            export default SavedGroceryList;
