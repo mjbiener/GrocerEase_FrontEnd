@@ -1,14 +1,16 @@
 import Navbar from "./Navbar";
 import { CreateListForm } from "./CreateListForm";
 import SavedGroceryList from './SavedGroceryList'
-
+import { Typography, Container } from "@mui/material";
 
 const Mainpage = ({eraseAuth, token, username}) => {
     return (
         <>
-        <div className="title_container">
-            <h1 className='title'>GrocerEase</h1>
-        </div>
+        <Container style={{backgroundColor: "#EEB61B"}}>
+            <Typography variant="h3" color="#FFF8F0" gutterBottom component="div">
+            GrocerEase
+            </Typography>
+        </Container>
         <div>
             <Navbar eraseAuth= {eraseAuth} token={token} username= {username}/>
         </div>
