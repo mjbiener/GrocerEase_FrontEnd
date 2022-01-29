@@ -34,12 +34,17 @@ return (
             <div className='grocery_item_text'>
                 <h2 className='item_name'>{item.name}</h2>
                 <div className='item_count_container'>
-                    <input className='item_count'
-                        type='number'
-                        value={item.quantity}
-                        onChange={(event) => onUpdateCount(item.pk, event.target.value)}>
-                    </input>
-                    <p className='count'>ct.</p>
+                    <p>Current Qty: {item.item_quantity} </p>
+                    <br></br>
+                    {/* <div className = "update_qty"> */}
+                        <label for name="item_count">new Qty</label>
+                        <input className='item_count'
+                            type='number'
+                            value={item.quantity}
+                            onChange={(event) => onUpdateCount(item.pk, event.target.value)}>
+                        </input>
+                        <p className='count'>ct.</p>
+                    {/* </div> */}
                 </div>
                 <p>{item.choices}</p>
                 </div>

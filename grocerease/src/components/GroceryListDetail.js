@@ -8,6 +8,7 @@ const GroceryListDetail = ({token}) => {
     const location = useLocation() 
     let listId = location.search.split('=')[1]
     const [value, setValue] = useState('');
+    const [quantity, setQuantity] = useState('');
     const [items, setItems] = useState([]);
     const [listName, setListName] = useState('');
     const [choices, setChoices] = useState('Produce');
@@ -55,7 +56,7 @@ const GroceryListDetail = ({token}) => {
         console.log(choices)
         axios.post(`https://grocerease.herokuapp.com/grocerease/lists/${listId}/items/`, 
         {   name: value,
-            quantity: 1,
+            item_quantity: quantity,
             choices: choices,
         },
         {
@@ -114,8 +115,11 @@ const GroceryListDetail = ({token}) => {
                     placeholder='Search for products'
                     onChange={(event) => setValue(event.target.value)}></input>
                 </div>
-
                 <div>
+                    <label for name="quantity">Quantity</label>
+                    <input type="number" name="quantity" id="quantity" value={quantity}
+                    onChange={(e) => setQuantity(e.target.value)}></input>
+                
                     <button className='add_product_button' onClick={onAddProduct} type='submit'>Add Product</button>
                 </div>
             </div>
