@@ -5,7 +5,7 @@ import GroceryListItem from './GroceryListItem'
 import { useLocation, useNavigate } from 'react-router-dom'
 import * as React from 'react';
 import CssBaseline from '@mui/material/CssBaseline';
-import { Button, CardActions, Container } from '@mui/material';
+import { Card, CardActions, Container } from '@mui/material';
 
 
 
@@ -85,7 +85,6 @@ const GroceryListDetail = ({ token }) => {
     }
 
     return (
-        <>
             <React.Fragment>
                 <CssBaseline />
 
@@ -103,9 +102,8 @@ const GroceryListDetail = ({ token }) => {
                             <option value="Baby Care">Baby Care</option>
                         </select>
                     </div>
-                </Container>
 
-                <Container style={{ backgroundColor: "#FFF8F0" }}>
+                <Card style={{ backgroundColor: "#FFF8F0" }}>
                     <div>
                         <input className=' input-reset ba bg-transparent w-100 measure add_product_input' type="text" id="products" value={value}
                             placeholder='Search for products'
@@ -115,23 +113,25 @@ const GroceryListDetail = ({ token }) => {
                     <div>
                         <button className='add_product_button' onClick={onAddProduct} type='submit'>Add Product</button>
                     </div>
-                </Container>
+                </Card>
 
                 <CardActions style={{ backgroundColor: "#FFF8F0" }}>
-
-                    <Button style={{ color: "#FFF8F0" }} size="small" onClick={saveList} >Save List</Button>
-                    <Button style={{ color: "#FFF8F0" }} size="small">Start Shopping</Button>
-                    <div className="items_container">
+                    <div>
+                    <button onClick={saveList} >Save List</button>
+                    <button >Start Shopping</button>
+                    </div>
+                    <div style={{ backgroundColor: "#FFF8F0" }}>
                         {items.map((item) => {
                             return (<GroceryListItem item={item} />
                             )
                         })}
                     </div>
                 </CardActions>
+                </Container>
+
             </React.Fragment>
 
 
-        </>
     )
 }
 

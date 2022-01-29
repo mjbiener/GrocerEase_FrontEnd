@@ -12,14 +12,19 @@ const Homepage = () => {
                 <Typography variant="h3" color="#FFF8F0" gutterBottom component="div">
                 Welcome to Grocerease
                 </Typography>
+                <Typography variant="h5" color="#FFF8F0" gutterBottom component="div">
+                Quick, Fast & A Breeze, Shop With GrocerEase
+            </Typography>
+
             </Container>
             </div>
-            <div className="login_button">
+            
+            <Container style={{backgroundColor: "#EEB61B"}}>
                 <Link to='/login'>Login</Link>
-            </div>
-            <div className="register_button">
+            </Container>
+            <Container style={{backgroundColor: "#EEB61B"}}>
                 <Link to='/register'>Register</Link>
-            </div>
+            </Container>
         </div>
     )
 }
