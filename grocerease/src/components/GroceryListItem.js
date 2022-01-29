@@ -3,6 +3,7 @@ import axios from 'axios';
 
 
 const GroceryListItem = ({item, token, onGrabList}) => {
+    const [itemcount, setItemCount] = useState()
     console.log(item)
 
     
@@ -37,8 +38,7 @@ return (
                     <input className='item_count'
                         type='number'
                         value={item.quantity}
-                        onChange={(event) => onUpdateCount(item.pk, event.target.value)}>
-                    </input>
+                        onChange={(event) => setItemCount(event.target.value)}/>
                     <p className='count'>ct.</p>
                 </div>
                 <p>{item.choices}</p>
