@@ -1,11 +1,14 @@
 import "../navbar.css";
 import Logout from "./Logout";
 import "../navbar.css";
+import * as React from "react";
+// import CssBaseline from "@mui/material/CssBaseline";
+import Container from "@mui/material/Container";
 
 const Navbar = ({ username, token, eraseAuth }) => {
   return (
     <div>
-      <nav className="navbar_container">
+      <Container style={{ backgroundColor: "#EEB61B" }}>
         <div className="logout_button">
           <Logout
             username={username}
@@ -14,7 +17,7 @@ const Navbar = ({ username, token, eraseAuth }) => {
             className="logout_button"
           />
         </div>
-      </nav>
+      </Container>
     </div>
   );
 };

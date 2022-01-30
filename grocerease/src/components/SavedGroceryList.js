@@ -3,10 +3,12 @@ import { useState, useEffect } from "react";
 import { GroceryCard } from "./GroceryCard";
 import _ from "lodash";
 import "../groceryCard.css";
+import * as React from "react";
+import CssBaseline from "@mui/material/CssBaseline";
+import Container from "@mui/material/Container";
 
 const SavedGroceryList = ({ token }) => {
   const [lists, setLists] = useState([]);
-  // currently you are hard coding for the sort by function, get this function to render the name/titles in order, then you will be done with this function
   useEffect(() => {
     axios
       .get("https://grocerease.herokuapp.com/grocerease/lists/", {
@@ -58,31 +60,36 @@ const SavedGroceryList = ({ token }) => {
   };
 
   return (
-    <div className="groceryList_container">
-      <div>
-        <div className="search-filter">
-          <div>
-            <label>Sort By:</label>
-            <select onChange={SortList} className="sort-by">
-              <option value="date_created">Date</option>
-              <option value="name">Name</option>
-            </select>
+    <React.Fragment>
+      <CssBaseline />
+
+      <Container style={{ backgroundColor: "#FFF8F0" }}>
+        <div>
+          <div className="search-filter">
+            <div>
+              <label>Sort By:</label>
+              <select onChange={SortList} className="sort-by">
+                <option value="date_created">Date</option>
+                <option value="name">Name</option>
+              </select>
+            </div>
           </div>
+          {lists &&
+            lists.map((list) => {
+              console.log(list);
+              return (
+                <GroceryCard
+                  name={list.name}
+                  date_created={list.date_created}
+                  tags={list.tags}
+                  listId={list.pk}
+                  onDelete={DeleteList}
+                />
+              );
+            })}
         </div>
-        {lists &&
-          lists.map((list) => {
-            console.log(list);
-            return (
-              <GroceryCard
-                name={list.name}
-                date_created={list.date_created}
-                listId={list.pk}
-                onDelete={DeleteList}
-              />
-            );
-          })}
-      </div>
-    </div>
+      </Container>
+    </React.Fragment>
   );
 };
 
