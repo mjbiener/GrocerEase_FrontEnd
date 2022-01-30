@@ -111,4 +111,3 @@ export default function Login({ isLoggedIn, setAuth }) {
     </Container>
   );
 }
-
