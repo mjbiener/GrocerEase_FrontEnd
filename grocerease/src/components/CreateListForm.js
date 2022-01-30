@@ -38,30 +38,29 @@ const CreateListForm = ({ token }) => {
   };
 
   return (
-    <React.Fragment>
-      <CssBaseline />
-
-      <Container style={{ backgroundColor: "#FFF8F0" }}>
-        <div>
-          <form onSubmit={handleSubmit}>
-            <label>List Name:</label>
-            <input
-              className="createListInput"
-              type="text"
-              placeholder="List's Name"
-              value={name}
-              onChange={(event) => handleChange("name", event)}
-            />
-          </form>
-        </div>
-        <div>
-          <Button size="medium" onClick={handleSubmit}>
-            {" "}
-            Create New List{" "}
-          </Button>
-        </div>
-      </Container>
-    </React.Fragment>
+      <React.Fragment>
+        <CssBaseline />
+        <Container style={{ backgroundColor: "#FFF8F0" }}>
+          <div>
+            <form onSubmit={handleSubmit}>
+              <label>List Name:</label>
+              <input
+                className="createListInput"
+                type="text"
+                placeholder="List's Name"
+                value={name}
+                onChange={(event) => handleChange("name", event)}
+              />
+            </form>
+          </div>
+          <div>
+            <Button size="medium" onClick={handleSubmit}>
+              {" "}
+              Create New List{" "}
+            </Button>
+          </div>
+        </Container>
+      </React.Fragment>
   );
 };
 
