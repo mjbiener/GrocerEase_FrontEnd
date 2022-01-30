@@ -57,12 +57,11 @@ const GroceryListItem = ({ item, token, onGrabList }) => {
             ></input>
             <p className="count">ct.</p>
           </div>
-          <p>{item.choices}</p>
-        </div>
+            <p>{item.choices}</p>
+          </div>
       </div>
     </div>
-  );
-};
+  )};
 
 
 export default GroceryListItem;

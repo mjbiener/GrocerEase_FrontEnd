@@ -1,5 +1,5 @@
 import Navbar from "./Navbar";
-import { CreateListForm } from "./CreateListForm";
+import CreateListForm from "./CreateListForm";
 import SavedGroceryList from './SavedGroceryList'
 
 

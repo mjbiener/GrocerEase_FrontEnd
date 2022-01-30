@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import '../createListForm.css'
 
 
-export const CreateListForm = ({ token }) => {
+const CreateListForm = ({ token }) => {
 
     const [name, setName] = useState('')
     const navigate = useNavigate()
@@ -58,3 +58,5 @@ export const CreateListForm = ({ token }) => {
         </>
     )
 }
+
+export default CreateListForm;

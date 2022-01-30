@@ -13,40 +13,42 @@ const GroceryListDetail = ({ token }) => {
   const [choices, setChoices] = useState("Produce");
   const navigate = useNavigate();
 
-
-    const GrabListDetails = () => {
-        axios.get(`https://grocerease.herokuapp.com/grocerease/list_detail/${listId}`,
+  const GrabListDetails = () => {
+    axios
+      .get(
+        `https://grocerease.herokuapp.com/grocerease/list_detail/${listId}`,
         {
-            headers: {
-                'Content-Type': 'application/json',
-                Authorization: `token ${token}`
-            }
-        })
-        .then (res => {
-            console.log(res)
-            setListName(res.data.name)
-
-        })
-    }
-    const GrabList = () => {    
-        axios.get(`https://grocerease.herokuapp.com/grocerease/lists/${listId}/items/`,
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `token ${token}`,
+          },
+        }
+      )
+      .then((res) => {
+        console.log(res);
+        setListName(res.data.name);
+      });
+  };
+  const GrabList = () => {
+    axios
+      .get(
+        `https://grocerease.herokuapp.com/grocerease/lists/${listId}/items/`,
         {
-            headers: {
-                'Content-Type': 'application/json',
-                Authorization: `token ${token}`
-            }
-        })
-        .then (res => {
-            setItems(res.data)
-        })
-    }
-    
-    useEffect(() => {
-        GrabListDetails()
-        GrabList()
-    },
-    []
-    )
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `token ${token}`,
+          },
+        }
+      )
+      .then((res) => {
+        setItems(res.data);
+      });
+  };
+
+  useEffect(() => {
+    GrabListDetails();
+    GrabList();
+  }, []);
   const onAddProduct = (event) => {
     event.preventDefault();
     console.log(choices);
@@ -54,7 +56,7 @@ const GroceryListDetail = ({ token }) => {
       .post(
         `https://grocerease.herokuapp.com/grocerease/lists/${listId}/items/`,
         { name: value, quantity: 1, choices: choices },
-        
+
         {
           headers: {
             "Content-Type": "application/json",
@@ -83,7 +85,6 @@ const GroceryListDetail = ({ token }) => {
         },
         console.log(listId),
         {
-
           headers: {
             "Content-Type": "application/json",
             Authorization: `token ${token}`,
@@ -95,7 +96,6 @@ const GroceryListDetail = ({ token }) => {
       });
   };
 
-
   return (
     <>
       <div className="list_details_page_container">
@@ -106,70 +106,86 @@ const GroceryListDetail = ({ token }) => {
             value={listName}
           />
 
-          <select
-            className=""
-            onChange={(event) => setChoices(event.target.value)}
-            value={choices}
-          >
-            <option value="Produce">Produce</option>
-            <option value="Dairy">Dairy</option>
-            <option value="Baked Goods">Baked Goods</option>
-            <option value="Meat and Fish">Meat and Fish</option>
-            <option value="Frozen Goods">Frozen Goods</option>
-            <option value="Snacks">Snacks</option>
-            <option value="Alcohol">Alcohol</option>
-            <option value="Baby Care">Baby Care</option>
-            <option value="Canned Goods">Canned Goods</option>
-            <option value="Dry Goods">Dry Goods</option>
-            <option value="Sauces and Condiments">Sauces and Condiments</option>
-            <option value="Herbs and Spices">Herbs and Spices</option>
-            <option value="Non-Alcoholic Beverages">
-              Non-Alcoholic Beverages
-            </option>
-            <option value="Household and Cleaning">
-              Household and Cleaning
-            </option>
-            <option value="Health and Beauty">Health and Beauty</option>
-          </select>
-        </div>
-
-        <div className="add_product_container">
           <div>
-            <input
-              className="pa2 input-reset ba bg-transparent w-100 measure add_product_input"
-              type="text"
-              id="products"
-              value={value}
-              placeholder="Search for products"
-              onChange={(event) => setValue(event.target.value)}
-            ></input>
+            <select
+              className=""
+              onChange={(event) => setChoices(event.target.value)}
+              value={choices}
+            >
+              <option value="Produce">Produce</option>
+              <option value="Dairy">Dairy</option>
+              <option value="Baked Goods">Baked Goods</option>
+              <option value="Meat and Fish">Meat and Fish</option>
+              <option value="Frozen Goods">Frozen Goods</option>
+              <option value="Snacks">Snacks</option>
+              <option value="Alcohol">Alcohol</option>
+              <option value="Baby Care">Baby Care</option>
+              <option value="Canned Goods">Canned Goods</option>
+              <option value="Dry Goods">Dry Goods</option>
+              <option value="Sauces and Condiments">
+                Sauces and Condiments
+              </option>
+              <option value="Herbs and Spices">Herbs and Spices</option>
+              <option value="Non-Alcoholic Beverages">
+                Non-Alcoholic Beverages
+              </option>
+              <option value="Household and Cleaning">
+                Household and Cleaning
+              </option>
+              <option value="Health and Beauty">Health and Beauty</option>
+            </select>
           </div>
 
-          <div>
-            <button
-              className="add_product_button"
-              onClick={onAddProduct}
-              type="submit"
-            >
-              Add Product
-            </button>
+          <div className="add_product_container">
+            <div>
+              <input
+                className="pa2 input-reset ba bg-transparent w-100 measure add_product_input"
+                type="text"
+                id="products"
+                value={value}
+                placeholder="Search for products"
+                onChange={(event) => setValue(event.target.value)}
+              ></input>
+            </div>
+
+            <div>
+              <button
+                className="add_product_button"
+                onClick={onAddProduct}
+                type="submit"
+              >
+                Add Product
+              </button>
+            </div>
           </div>
         </div>
         <div className="button_container">
           <button className="save_list_button" onClick={saveList}>
             Save List
           </button>
-          <button className="start_shopping_button">Start Shopping</button>
+          <button
+            onClick={() => {
+              navigate(`/go_shopping?ide=${listId}`);
+            }}
+            className="start_shopping_button"
+          >
+            Start Shopping
+          </button>
         </div>
         <div className="items_container">
           {items.map((item) => {
-            return <GroceryListItem onGrabList={GrabList} item={item} token={token} />;
+            return (
+              <GroceryListItem
+                onGrabList={GrabList}
+                item={item}
+                token={token}
+              />
+            );
           })}
         </div>
       </div>
     </>
   );
 };
-
 
 export default GroceryListDetail;
