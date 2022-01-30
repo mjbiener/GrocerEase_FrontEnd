@@ -68,11 +68,8 @@ const GroceryListDetail = ({ token }) => {
         console.log(res, "items endpoint");
         setItems([
           ...items,
-          {
-            name: res.data.name,
-            item_quantity: res.data.item_quantity,
-            choices: res.data.choices,
-          },
+          res.data
+      
         ]);
       });
   };
