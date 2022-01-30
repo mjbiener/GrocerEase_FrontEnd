@@ -8,7 +8,7 @@ import Login from './components/Login.js';
 // import Logout from './components/Logout';
 import GroceryListDetail from './components/GroceryListDetail';
 import SavedGroceryList from './components/SavedGroceryList';
-import GoShopping from './components/GoShopping'
+import GoShopping from './components/GoShopping';
 
 
 export default function App() {

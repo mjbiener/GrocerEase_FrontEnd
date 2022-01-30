@@ -8,7 +8,6 @@ const CheckListItem = ({item}) => {
             <p>{item.name}</p>
             <p>{item.item_quantity}</p>
             <p>{item.choices}</p>
-            <p>--__</p>
         </div>
         
     )
