@@ -7,7 +7,7 @@ const Mainpage = ({eraseAuth, token, username}) => {
     return (
         <>
         <Container style={{backgroundColor: "#EEB61B"}}>
-            <Typography variant="h3" color="#FFF8F0" gutterBottom component="div">
+            <Typography variant="h5" color="#FFF8F0" gutterBottom component="div">
             GrocerEase
             </Typography>
         </Container>
