@@ -13,7 +13,7 @@ const GroceryListDetail = ({ token }) => {
   const [choices, setChoices] = useState("Produce");
   const navigate = useNavigate();
 
-  useEffect(() => {
+  const GrabListDetails = () => {
     axios
       .get(
         `https://grocerease.herokuapp.com/grocerease/list_detail/${listId}`,
@@ -25,8 +25,11 @@ const GroceryListDetail = ({ token }) => {
         }
       )
       .then((res) => {
+        console.log(res);
         setListName(res.data.name);
       });
+  };
+  const GrabList = () => {
     axios
       .get(
         `https://grocerease.herokuapp.com/grocerease/lists/${listId}/items/`,
@@ -38,10 +41,13 @@ const GroceryListDetail = ({ token }) => {
         }
       )
       .then((res) => {
-        console.log(res, "get items");
-        const newItems = [...items, ...res.data];
-        setItems(newItems);
+        setItems(res.data);
       });
+  };
+
+  useEffect(() => {
+    GrabListDetails();
+    GrabList();
   }, []);
   const onAddProduct = (event) => {
     event.preventDefault();
@@ -50,6 +56,7 @@ const GroceryListDetail = ({ token }) => {
       .post(
         `https://grocerease.herokuapp.com/grocerease/lists/${listId}/items/`,
         { name: value, quantity: 1, choices: choices },
+
         {
           headers: {
             "Content-Type": "application/json",
@@ -76,6 +83,7 @@ const GroceryListDetail = ({ token }) => {
         {
           name: listName,
         },
+        console.log(listId),
         {
           headers: {
             "Content-Type": "application/json",
@@ -150,26 +158,30 @@ const GroceryListDetail = ({ token }) => {
               </button>
             </div>
           </div>
-
-          <div className="button_container">
-            <button className="save_list_button" onClick={saveList}>
-              Save List
-            </button>
-            <button
-              onClick={() => {
-                navigate(`/go_shopping?ide=${listId}`);
-              }}
-              className="start_shopping_button"
-            >
-              Start Shopping
-            </button>
-          </div>
-
-          <div className="items_container">
-            {items.map((item) => {
-              return <GroceryListItem item={item} token={token} />;
-            })}
-          </div>
+        </div>
+        <div className="button_container">
+          <button className="save_list_button" onClick={saveList}>
+            Save List
+          </button>
+          <button
+            onClick={() => {
+              navigate(`/go_shopping?ide=${listId}`);
+            }}
+            className="start_shopping_button"
+          >
+            Start Shopping
+          </button>
+        </div>
+        <div className="items_container">
+          {items.map((item) => {
+            return (
+              <GroceryListItem
+                onGrabList={GrabList}
+                item={item}
+                token={token}
+              />
+            );
+          })}
         </div>
       </div>
     </>
