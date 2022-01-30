@@ -5,6 +5,7 @@ import "../navbar.css";
 const Logout = ({ username, token, eraseAuth }) => {
   const navigate = useNavigate();
   const onClick = () => {
+    console.log('here')
     axios
       .post(
         "https://grocerease.herokuapp.com/auth/token/logout/",
@@ -22,11 +23,10 @@ const Logout = ({ username, token, eraseAuth }) => {
   };
 
   return (
-    <div>
+    <div onClick={onClick}>
       <i
         class="f4 fw6 db dark-blue no-underline underline-hover logout_button"
         href="#0"
-        onClick={onClick}
       >
         Logout
       </i>

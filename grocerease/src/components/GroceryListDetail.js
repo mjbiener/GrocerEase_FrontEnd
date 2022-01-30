@@ -145,11 +145,11 @@ const GroceryListDetail = ({ token }) => {
         <CardActions style={{ backgroundColor: "#FFF8F0" }}>
           <div>
             <button onClick={saveList}>Save List</button>
-            <button>Start Shopping</button>
+            <button onClick= {() => navigate(`/go_shopping?id=${listId}`)}>Start Shopping</button>
           </div>
           <div style={{ backgroundColor: "#FFF8F0" }}>
             {items.map((item) => {
-              return <GroceryListItem item={item} />;
+              return <GroceryListItem item={item} token={token}/>;
             })}
           </div>
         </CardActions>
