@@ -11,7 +11,6 @@ import {
   Button,
   TextField,
 } from "@mui/material";
-// import { fontWeight } from "@mui/system";
 
 export default function Login({ isLoggedIn, setAuth }) {
   const [username, setUsername] = useState("");
@@ -92,6 +91,7 @@ export default function Login({ isLoggedIn, setAuth }) {
           shop quick, easy, and in a breeze!
         </Typography>
       </Box>
+
       <Box
         sx={{
           display: "flex",
