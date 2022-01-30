@@ -38,7 +38,7 @@ const CreateListForm = ({ token }) => {
     };
 
     return (
-        <div>
+        // <div>
             <React.Fragment>
                 <CssBaseline />
 
@@ -63,7 +63,7 @@ const CreateListForm = ({ token }) => {
                     </div>
                 </Container>
             </React.Fragment>
-        </div>
+        // </div>
     );
 };
 
