@@ -1,5 +1,10 @@
 import { useState } from "react";
 import axios from "axios";
+import IconButton from '@mui/material/IconButton'
+import DeleteIcon from '@mui/icons-material/Delete';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import '../groceryListItem.css';
 
 const GroceryListItem = ({ item, token, onGrabList }) => {
   console.log(item);
@@ -36,33 +41,29 @@ const GroceryListItem = ({ item, token, onGrabList }) => {
   };
 
   return (
-    <div className="grocery_list">
-      <div className="grocery_item_detail">
-        <div className="delete_button">
-          <i
-            className="fas fa-times-circle fa-3x"
+    <Card className="grocery_list">
+        <IconButton 
+        aria-label="delete"
             onClick={(event) => {
               event.preventDefault();
               deleteItem(item);
-            }}
-          ></i>
-        </div>
-        <div className="grocery_item_text">
+            }}>
+            <DeleteIcon />
+          </IconButton>
+          <CardContent className='cardContent'>
           <h2 className="item_name">{item.name}</h2>
-          <div className="item_count_container">
             <input
               className="item_count"
               type="number"
               value={itemCount}
               onChange={(event) => setItemCount(event.target.value)}
               onBlur={handleUpdateQuantity}
-            ></input>
+            >
+            </input>
             <p className="count">ct.</p>
-          </div>
           <p>{item.choices}</p>
-        </div>
-      </div>
-    </div>
+          </CardContent>
+    </Card>
   );
 };
 
