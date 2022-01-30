@@ -5,7 +5,7 @@ import GroceryListItem from "./GroceryListItem";
 import { useLocation, useNavigate } from "react-router-dom";
 import * as React from "react";
 import CssBaseline from "@mui/material/CssBaseline";
-import { Card, CardActions, Container } from "@mui/material";
+import { Card, CardActions, Container, TextField, Select, MenuItem, InputLabel, Button } from "@mui/material";
 
 const GroceryListDetail = ({ token }) => {
   const location = useLocation();
@@ -46,6 +46,20 @@ const GroceryListDetail = ({ token }) => {
         setItems(newItems);
       });
   }, []);
+
+  const GrabList = () => {    
+    axios.get(`https://grocerease.herokuapp.com/grocerease/lists/${listId}/items/`,
+    {
+        headers: {
+            'Content-Type': 'application/json',
+            Authorization: `token ${token}`
+        }
+    })
+    .then (res => {
+        setItems(res.data)
+    })
+}
+
   const onAddProduct = (event) => {
     event.preventDefault();
     console.log(choices);
@@ -66,14 +80,7 @@ const GroceryListDetail = ({ token }) => {
       )
       .then((res) => {
         console.log(res, "items endpoint");
-        setItems([
-          ...items,
-          {
-            name: res.data.name,
-            item_quantity: res.data.item_quantity,
-            choices: res.data.choices,
-          },
-        ]);
+        setItems([...items, res.data]);
       });
   };
   const saveList = () => {
@@ -101,58 +108,59 @@ const GroceryListDetail = ({ token }) => {
 
       <Container style={{ backgroundColor: "#FFF8F0" }}>
         <div className="list_detail_container">
-          <input
-            className="pa2 input-reset ba bg-transparent w-100 measure search_input list_name_category_input"
+          <TextField
+            id="outlined-basic" label="List Name" variant="outlined"
             onChange={(event) => setListName(event.target.value)}
             value={listName}
           />
-
-          <select
-            className=""
+          <InputLabel id="demo-simple-select-label">Category</InputLabel>
+          <Select
+            labelId="demo-simple-select-label"
+            id="demo-simple-select"
             onChange={(event) => setChoices(event.target.value)}
             value={choices}
           >
-            <option value="Produce">Produce</option>
-            <option value="Dairy">Dairy</option>
-            <option value="Baked Goods">Baked Goods</option>
-            <option value="Meat and Fish">Meat and Fish</option>
-            <option value="Snacks">Snacks</option>
-            <option value="Alcohol">Alcohol</option>
-            <option value="Baby Care">Baby Care</option>
-          </select>
+            <MenuItem value="Produce">Produce</MenuItem>
+            <MenuItem value="Dairy">Dairy</MenuItem>
+            <MenuItem value="Baked Goods">Baked Goods</MenuItem>
+            <MenuItem value="Meat and Fish">Meat and Fish</MenuItem>
+            <MenuItem value="Snacks">Snacks</MenuItem>
+            <MenuItem value="Alcohol">Alcohol</MenuItem>
+            <MenuItem value="Baby Care">Baby Care</MenuItem>
+          </Select>
         </div>
 
         <Card style={{ backgroundColor: "#FFF8F0" }}>
           <div>
-            <input
-              className=" input-reset ba bg-transparent w-100 measure add_product_input"
-              type="text"
-              id="products"
+          <TextField
+              id="outlined-basic" variant="outlined"
               value={value}
               placeholder="Search for products"
               onChange={(event) => setValue(event.target.value)}
-            ></input>
+            ></TextField>
           </div>
 
           <div>
-            <button
-              className="add_product_button"
+            <Button
+              variant="outlined"
               onClick={onAddProduct}
               type="submit"
             >
               Add Product
-            </button>
+            </Button>
           </div>
         </Card>
 
         <CardActions style={{ backgroundColor: "#FFF8F0" }}>
           <div>
             <button onClick={saveList}>Save List</button>
-            <button>Start Shopping</button>
+            <button onClick={() => navigate(`/go_shopping?id=${listId}`)}>
+              Start Shopping
+            </button>
           </div>
           <div style={{ backgroundColor: "#FFF8F0" }}>
             {items.map((item) => {
-              return <GroceryListItem item={item} />;
+              return <GroceryListItem onGrabList={GrabList} item={item} token={token} />;
             })}
           </div>
         </CardActions>

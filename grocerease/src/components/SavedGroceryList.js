@@ -32,6 +32,17 @@ const SavedGroceryList = ({ token }) => {
       .catch((error) => console.log(error));
   }, [token, setLists]);
 
+  const SortList = (event) => {
+    console.log(event.target.value);
+    const sorted_lists = _.orderBy(
+      lists,
+      [event.target.value],
+      // if the event.target.value = the date_created set descinding order
+      [event.target.value === "date_created" && "desc"]
+    );
+    console.log({ sorted_lists });
+    setLists(sorted_lists);
+  };
   const DeleteList = (listId) => {
     axios
       .delete(
@@ -57,9 +68,9 @@ const SavedGroceryList = ({ token }) => {
           <div className="search-filter">
             <div>
               <label>Sort By:</label>
-              <select className="sort-by">
-                <option value="">Select one</option>
+              <select onChange={SortList} className="sort-by">
                 <option value="date_created">Date</option>
+                <option value="name">Name</option>
               </select>
             </div>
           </div>
