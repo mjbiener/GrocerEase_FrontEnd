@@ -5,7 +5,7 @@ import "../navbar.css";
 const Logout = ({ username, token, eraseAuth }) => {
   const navigate = useNavigate();
   const onClick = () => {
-    console.log('here')
+    console.log("here");
     axios
       .post(
         "https://grocerease.herokuapp.com/auth/token/logout/",
